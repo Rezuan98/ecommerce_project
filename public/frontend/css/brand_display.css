@@ -1,0 +1,23 @@
+.brand-container {
+    display: flex;
+    align-items: center; /* Center content vertically if needed */
+    gap: 5px; /* Space between text and image */
+   
+    padding: 5px;
+}
+
+.text-content {
+    flex: 1; /* Takes up the available space in the first column */
+}
+
+.image-content {
+    flex: 1; /* Takes up the available space in the second column */
+    display: flex;
+    justify-content: flex-end; /* Align image to the right */
+    
+}
+
+.image-content img {
+    width: 70%; /* Adjusts image size to fit column width */
+    height: 200px;
+}

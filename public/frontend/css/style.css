@@ -1,0 +1,60 @@
+.banner{
+    margin:0;
+    padding:0;
+}
+.banner img{
+    width:100%;
+    height: 100%;
+}
+
+.custom-section {
+
+    text-align: center;
+}
+
+.category_container {
+  
+    color: #fff;
+    padding: 10px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.category_container .category-item {
+    max-width: 1200px;
+    width: 100%; 
+    padding: 10px 20px;
+    text-align: center; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Optional: separates each item */
+}
+
+
+/* bulk-container start */
+
+.bulk-container {
+
+   
+    background-color: rgb(88, 128, 163);
+    height: 250px;
+    width: 100%;
+    text-align: center;
+  
+   
+}
+
+/* bulk-container end */
+
+/* testimonial start */
+
+.testimonial-container {
+
+    text-align: center;
+   
+    background-color: #ece4a8;
+    
+}
+
+
+/* testimonial end */

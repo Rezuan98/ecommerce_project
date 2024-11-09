@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: aliceblue;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout for full-width rows */
+    grid-template-rows: auto 1fr auto; /* Header, content, and footer */
+    min-height: 100vh; /* Ensures full viewport height */
+    background-color: aliceblue
+   
+}
+
+.header {
+    grid-row: 1/2;
+  
+}
+.contents{
+    grid-row: 2/3;
+}
+
+.footer {
+    grid-row: 3/4;
+}

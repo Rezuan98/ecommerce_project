@@ -1,0 +1,40 @@
+/* Category Container */
+.category-container {
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(auto-fit, minmax(350px,1fr)); 
+    gap: 20px;
+    max-width: 100%px; 
+    margin: 50px;
+    padding: 20px; 
+}
+
+/* Category Card */
+.category-card {
+    position: relative; 
+    background-color: #fff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    overflow: hidden; /* Ensure the content stays within rounded corners */
+    height: 450px; /* Fixed height for each card */
+}
+
+/* Category Image */
+.category-image {
+    width: 100%; /* Full width */
+    height: 100%; /* Set a fixed height for images */
+    object-fit: cover; /* Maintain aspect ratio and cover the card */
+    display: block; /* Ensure there is no space below the image */
+}
+
+/* Category Title */
+.category-title {
+    position: absolute; 
+    bottom: 10px; /* Distance from the bottom of the card */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Offset to center */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    color: #fff; /* White text */
+    padding: 10px; /* Padding for title */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center text alignment */
+}
