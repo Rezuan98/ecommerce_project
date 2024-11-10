@@ -2,7 +2,7 @@
 .slider-container {
     position: relative;
     max-width: 100%;
-    width: 80vw; /* Large width */
+   /* Large width */
     height: 60vh; /* Large height */
     margin: auto;
     overflow: hidden;

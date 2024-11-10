@@ -3,8 +3,8 @@
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
     gap: 20px; 
     padding: 5px;
-    margin-left:10px 10px;
-    margin-right: 100px;
+    
+  
     
     
     
@@ -66,4 +66,10 @@
 
 .link-button:hover {
     background-color: #e55b50; /* Darker color on hover */
+}
+
+@media (max-width: 768px) {
+    .product-container {
+        grid-template-columns: repeat(2, 1fr); /* Two cards per row on smaller screens */
+    }
 }

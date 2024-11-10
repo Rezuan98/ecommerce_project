@@ -3,7 +3,7 @@
     display: grid; /* Use CSS Grid for layout */
     grid-template-columns: repeat(auto-fit, minmax(350px,1fr)); 
     gap: 20px;
-    max-width: 100%px; 
+    max-width: 100%; 
     margin: 50px;
     padding: 20px; 
 }

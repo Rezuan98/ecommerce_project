@@ -3,19 +3,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
- html, body {
-   
-      margin: 0;
-      padding: 0;
-
-   
-    font-family: Arial, Helvetica, sans-serif;
-
-    
-    overflow-x: hidden; 
-    width: 100vw;
-  }
+* {
+  outline: 1px solid red; /* Temporarily highlights elements */
+}
+body {
+  overflow-x: hidden;
+}
   .mycontainer {
 
     
@@ -29,21 +24,23 @@
   .footer {
      
      grid-auto-rows: 3/4;
-     width: 100vw
+     width: 100%;
     }
   
   .header {
 
     
 grid-row: 1/2;
-width: 100vw
+width: 100%;
     
   }
   .content{
-grid-row: 2/3;
+   grid-row: 2/3;
+   padding: 10px;
+        width: 100%;
 
      min-height: 100vh;
-     width: 100vw
+     
 
   }
 
