@@ -5,9 +5,7 @@
   box-sizing: border-box;
   
 }
-* {
-  outline: 1px solid red; /* Temporarily highlights elements */
-}
+
 body {
   overflow-x: hidden;
 }
@@ -21,12 +19,7 @@ body {
     
 
   }
-  .footer {
-     
-     grid-auto-rows: 3/4;
-     width: 100%;
-    }
-  
+ 
   .header {
 
     
@@ -37,13 +30,18 @@ width: 100%;
   .content{
    grid-row: 2/3;
    padding: 10px;
-        width: 100%;
+     width: 100%; 
 
      min-height: 100vh;
      
 
   }
 
-  
+  .footer {
+     
+    grid-auto-rows: 3/4;
+     width: 100%; 
+   }
+ 
   
   

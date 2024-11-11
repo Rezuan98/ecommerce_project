@@ -1,8 +1,17 @@
-  /* Basic Reset */
-  * {
+/* Basic Reset */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Navbar Styling */
@@ -15,6 +24,7 @@
     color: #fff;
     font-family: Arial, sans-serif;
     width: 100%;
+    position: relative;
 }
 
 /* Logo */
@@ -27,7 +37,6 @@
 
 /* Navigation Links */
 .nav-links {
- 
     display: flex;
     gap: 20px;
     align-items: center;
@@ -44,39 +53,36 @@
     color: #ff6f61;
 }
 
-
+/* Dropdown Menu */
 .dropdown {
     position: relative;
 }
 
 .dropdown-menu {
-  visibility: hidden; 
-  opacity: 0; 
-  position: absolute;
-  top: 170%;
-  left: 0%;
-  right: 600%;
-  background-color: #236a6b;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 800px; 
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 10px;
-  z-index: 10;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #236a6b;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    z-index: 10;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-
 .dropdown:hover .dropdown-menu {
-  visibility: visible; 
-  opacity: 1; 
+    visibility: visible;
+    opacity: 1;
 }
 
 .dropdown-item {
     color: #fff;
-    padding: 10px;
+    padding: 8px;
     text-decoration: none;
     display: block;
 }
@@ -91,7 +97,7 @@
     align-items: center;
     gap: 10px;
     flex: 1;
-    max-width: 400px;
+    max-width: 300px; /* Adjusted max width */
 }
 
 .search-bar input[type="text"] {
@@ -135,37 +141,24 @@
     font-size: 0.8em;
 }
 
-
-
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    /* Adjust header layout for smaller screens */
     .header {
         flex-wrap: wrap;
-        justify-content: space-between;
     }
     .nav-links {
         flex: 1;
         justify-content: center;
     }
-
-     /* Hide the search bar on mobile */
-     .search-bar {
+    .search-bar {
         display: none;
     }
-
-    .cart {
-        order: 3;
-    }
-
 }
 
 @media (max-width: 480px) {
-    /* Increase padding for the header to improve touchability */
     .header {
         padding: 10px;
     }
-    
-    /* Adjust font size for dropdown items */
     .dropdown-item {
         font-size: 0.9em;
     }

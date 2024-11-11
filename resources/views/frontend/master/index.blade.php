@@ -9,7 +9,7 @@
     @include('frontend.parts.banner')
     @include('frontend.parts.categorybar')
     @include('frontend.parts.custom')
-    @include('frontend.parts.new_arrival')
+     @include('frontend.parts.new_arrival') 
     @include('frontend.parts.category_card')
     @include('frontend.parts.displaly_category')
     

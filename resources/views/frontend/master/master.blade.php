@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/layout.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/new_arrival.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/new_arrival.css') }}"> 
     <link rel="stylesheet" href="{{ asset('frontend/css/slider.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/category.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/category_card.css') }}">
