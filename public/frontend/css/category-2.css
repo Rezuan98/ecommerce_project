@@ -1,3 +1,5 @@
+
+/* its using for  */
 .grid-container {
     display: grid;
     gap: 10px;
@@ -52,18 +54,18 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width:768px) {
     .grid-container 
         {
         grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
     }
     .item1 {
-        grid-column: span 2; /* Span both columns */
+        grid-column: 1/ span 2; /* Span both columns */
     }
 }
 
 @media (max-width: 480px) {
-    .grid-container3 {
+    .grid-container {
         grid-template-columns: 1fr; /* Single column on very small screens */
     }
     .item1 {
@@ -75,25 +77,20 @@
 
 .category4-container {
     display: flex;
-    /* Auto-fit columns that are at least 150px wide, adjusting as screen size changes */
+    
    flex-direction: row;
    flex-wrap: wrap;
     gap: 10px;
-    width: 100%; /* Full width of the container */
-    height: auto; /* Let height adjust based on content */
-   
-    /* Center container if it's inside a limited-width parent */
-    padding: 10px; /* Optional padding for inner spacing */
-    box-sizing: border-box; /* Includes padding in the element's width */
+    width: 100%; 
+    height: auto; 
+    padding: 10px; 
+    box-sizing: border-box; 
+    align-items: center;
+    justify-content: center;
     
 }
-.category_name{
-    position: absolute;
-    top:0px; /* Distance from the top of the card */
-    /* Center horizontally */
-    left: 50%;
-    /* width: 100%; */
-}
+
+
 .category_card4 {
     
     height: 250px;
@@ -103,8 +100,13 @@
     position: relative;
 }
 
-
-
+.category_name{
+    position: absolute;
+    top:0px; /* Distance from the top of the card */
+   
+    
+    width: 100%;
+}
 /* category 4 container ends here */
 
 
@@ -113,11 +115,14 @@
 
 .category5-container {
 
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+    display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
     gap: 5px;
     max-width: 100%;
-    max-height: 350px;
+    
+    align-items: center;
+    justify-content: center;
    
  
 
@@ -128,11 +133,19 @@
    
     height: 350px;
     position: relative;
+    box-sizing: border-box;
 }
-
+@media (max-width: 768px) {
+    .category5-card {
+        height: auto; /* Allows cards to adapt to content */
+        width: 100%; /* Full-width cards on small screens */
+        margin-bottom: 20px;
+    }
+}
 .category5_card .category_title {
 
     position:absolute;
+    bottom: 0%;
 }
 
 /* category 6 start */

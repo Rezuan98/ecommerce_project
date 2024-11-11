@@ -1,85 +1,54 @@
 .category8-container {
-
     display: grid;
-    grid-template-columns: repeat(6,1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(3, 200px);
     gap: 10px;
     margin: 50px;
 }
 
 .category8-item1 {
-     background-color: bisque;
-    grid-column: 1/-1;
+    background-color: bisque;
+    grid-column: 1 / -1;
     grid-row: 1;
-   
-
 }
 
+.category8-item2 { grid-column: 1 / span 2; grid-row: 2 / span 2; }
+.category8-item3 { grid-column: 3 / 4; grid-row: 2 / 3; }
+.category8-item4 { grid-column: 4 / 5; grid-row: 2 / 3; }
+.category8-item5 { grid-column: 4 / 5; grid-row: 2 / 3; }
+.category8-item6 { grid-column: 5 / 6; grid-row: 2 / 3; }
+.category8-item7 { grid-column: 6 / 7; grid-row: 2 / 3; }
+.category8-item8 { grid-column: 3 / 4; grid-row: 3 / 4; }
+.category8-item9 { grid-column: 4 / 5; grid-row: 3 / 4; }
+.category8-item10 { grid-column: 5 / 6; grid-row: 3 / 4; }
+.category8-item11 { grid-column: 6 / 7; grid-row: 3 / 4; }
 
-.category8-item2 {
-    grid-column: 1/ span 2;
-    grid-row:  2/ span 2;
-   
+/* Responsive styling for mobile devices */
+@media (max-width: 768px) {
+    .category8-container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for mobile */
+        grid-auto-rows: auto; /* Allows rows to auto-adjust based on content */
+        gap: 10px;
+        margin: 20px;
+    }
+
+    /* Make the first item span across both columns */
+    .category8-item1 {
+        grid-column: 1 / -1;
+    }
+
+    /* Make each subsequent item take up a single cell */
+    .category8-item2,
+    .category8-item3,
+    .category8-item4,
+    .category8-item5,
+    .category8-item6,
+    .category8-item7,
+    .category8-item8,
+    .category8-item9,
+    .category8-item10,
+    .category8-item11 {
+        grid-column: span 1;
+        grid-row: auto;
+    }
 }
-.category8-item3 {
-
-    grid-column: 3/4;
-    grid-row: 2/3;
-
-   
-}
-.category8-item4 {
-
-    grid-column: 4/5;
-    grid-row: 2/3;
-
-}
-.category8-item5 {
-
-    grid-column: 4/5;
-    grid-row: 2/3;
-
-}
-.category8-item6 {
-
-    grid-column: 5/6;
-    grid-row: 2/3;
-
-    
-}
-.category8-item7 {
-
-    grid-column: 6/7;
-    grid-row: 2/3;
-
-    
-}
-.category8-item8 {
-
-    grid-column: 3/4;
-    grid-row: 3/4;
-
-    
-}
-.category8-item9{
-
-    grid-column: 4/5;
-    grid-row: 3/4;
-
-    
-}
-.category8-item10{
-
-    grid-column: 5/6;
-    grid-row: 3/4;
-
-    
-}
-.category8-item11{
-
-    grid-column: 6/7;
-    grid-row: 3/4;
-
-    
-}
-

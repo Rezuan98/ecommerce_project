@@ -12,7 +12,8 @@
 .items1 {
     grid-column: 1/ span 2;
     grid-row: 1/ span 2;
-    background-color: #120f0f;
+    
+    position:relative;
 }
 
 /* Remaining Items */
@@ -24,6 +25,15 @@
     align-items: center;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position:relative;
+}
+
+.category_name {
+
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    text-align: center;
 }
 
 /* Responsive Breakpoints */
@@ -32,7 +42,7 @@
         
         grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
     }
-    .item1 {
+    .items1 {
         grid-column: span 3; /* Make item1 span all columns */
     }
 }
@@ -42,7 +52,7 @@
         {
         grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
     }
-    .item1 {
+    .items1 {
         grid-column: span 2; /* Span both columns */
     }
 }
@@ -51,7 +61,7 @@
     .grid-container {
         grid-template-columns: 1fr; /* Single column on very small screens */
     }
-    .item1 {
+    .items1 {
         grid-column: span 1;
     }
 }

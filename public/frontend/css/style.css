@@ -36,10 +36,13 @@
 .bulk-container {
 
    
-    background-color: rgb(88, 128, 163);
-    height: 250px;
+    background-color: rgb(206, 209, 212);
+    height: auto;
     width: 100%;
     text-align: center;
+    padding: 25px;
+    overflow: hidden;
+    margin-bottom: 25px;
   
    
 }
@@ -49,12 +52,44 @@
 /* testimonial start */
 
 .testimonial-container {
-
-    text-align: center;
-   
-    background-color: #ece4a8;
-    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f7f7f7; /* Optional background color */
+    max-width: 1200px; /* Constrain width for larger screens */
+    margin: 0 auto; /* Center align container */
 }
+
+.text-testimonial {
+    flex: 1;
+    padding-right: 20px; /* Add space between text and image */
+}
+
+.image-testimonial {
+    flex: 1;
+    text-align: center;
+}
+
+.image-testimonial img {
+    max-width: 100%; /* Make image responsive */
+    height: auto;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+    .testimonial-container {
+        flex-direction: column; 
+        align-items: center;
+        text-align: center;
+    }
+
+    .text-testimonial {
+        padding-right: 0; 
+        margin-bottom: 20px; /* Space between text and image */
+    }
+}
+
 
 
 /* testimonial end */
