@@ -1,52 +1,53 @@
-
-/* its using for  */
-.grid-container {
+.category-2-container {
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(6, 1fr); 
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: auto;
     max-width: 100%;
     padding: 20px;
 }
 
+/* Grid Item Styles */
 .item1 {
-    grid-column: 1/ span 2;
-    grid-row: 1/ span 2;
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
     background-color: #120f0f;
+    position: relative;
 }
 
-.item2 .item3 .item4 .item5 .item6 .item7 .item8 .item9 {
-    height: 200px;
+.item2, .item3, .item4, .item5, .item6-, .item7, .item8, .item9 {
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* Ensure category overlay positions correctly */
+    overflow: hidden; /* Ensures the overlay stays within the boundaries */
 }
 
- 
-
-
-.category_name{
-
-    position:absolute;
-    padding:5;
-    top:0px; 
-    
-    left: 50%;
+/* Category Overlay Title */
+.category-2_name {
+    position: absolute;
+    top: 0; /* Align to the top */
+    left: 0;
+    width: 100%; /* Full width overlay */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    color: white;
+    padding: 5px;
+    text-align: center;
+    font-size: 0.9rem;
+    border-radius: 0 0 5px 5px;
+    transition: background-color 0.3s;
 }
-.category_name:hover {
+
+.category-2_name:hover {
     background-color: #407fac;
-    
 }
 
-
-
-
-/* Media Query for Medium Screens (Tablets) */
-@media (max-width: 1024px){
-    .grid-container {
-        
+/* Responsive Grid Adjustments */
+@media (max-width: 1024px) {
+    .category-2-container {
         grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
     }
     .item1 {
@@ -54,100 +55,27 @@
     }
 }
 
-@media (max-width:768px) {
-    .grid-container 
-        {
+@media (max-width: 768px) {
+    .category-2-container {
         grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
     }
     .item1 {
-        grid-column: 1/ span 2; /* Span both columns */
+        grid-column: 1 / span 2;
     }
 }
 
 @media (max-width: 480px) {
-    .grid-container {
+    .category-2-container {
         grid-template-columns: 1fr; /* Single column on very small screens */
     }
     .item1 {
         grid-column: span 1;
     }
-}
 
-/* category 4 container starts here */
-
-.category4-container {
-    display: flex;
-    
-   flex-direction: row;
-   flex-wrap: wrap;
-    gap: 10px;
-    width: 100%; 
-    height: auto; 
-    padding: 10px; 
-    box-sizing: border-box; 
-    align-items: center;
-    justify-content: center;
-    
-}
-
-
-.category_card4 {
-    
-    height: 250px;
-    /* Optional: add padding or margin if needed */
-    
-    box-sizing: border-box;
-    position: relative;
-}
-
-.category_name{
-    position: absolute;
-    top:0px; /* Distance from the top of the card */
-   
-    
-    width: 100%;
-}
-/* category 4 container ends here */
-
-
-
-/* category 5 container starts here */
-
-.category5-container {
-
-    display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-    gap: 5px;
-    max-width: 100%;
-    
-    align-items: center;
-    justify-content: center;
-   
- 
-
-
-}
-.category5-card {
-
-   
-    height: 350px;
-    position: relative;
-    box-sizing: border-box;
-}
-@media (max-width: 768px) {
-    .category5-card {
-        height: auto; /* Allows cards to adapt to content */
-        width: 100%; /* Full-width cards on small screens */
-        margin-bottom: 20px;
+    /* Ensure overlay stays at the top */
+    .category-2_name {
+        top: 0;
+        left: 0;
+        transform: translateY(0); /* Remove any centering adjustments */
     }
 }
-.category5_card .category_title {
-
-    position:absolute;
-    bottom: 0%;
-}
-
-/* category 6 start */
-
-/* category 6 end */

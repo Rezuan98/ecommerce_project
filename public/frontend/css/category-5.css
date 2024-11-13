@@ -1,0 +1,34 @@
+.category5-container {
+
+    display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+    gap: 5px;
+    max-width: 100%;
+    
+    align-items: center;
+    justify-content: center;
+   
+ 
+
+
+}
+.category5-card {
+
+   
+    height: 350px;
+    position: relative;
+    box-sizing: border-box;
+}
+@media (max-width: 768px) {
+    .category5-card {
+        height: auto; /* Allows cards to adapt to content */
+        width: 100%; /* Full-width cards on small screens */
+        margin-bottom: 20px;
+    }
+}
+.category5_card .category_title {
+
+    position:absolute;
+    bottom: 0%;
+}

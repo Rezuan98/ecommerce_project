@@ -1,75 +1,73 @@
-.grid-container-6 {
+.grid-6-container {
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(6, 1fr); 
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
     max-width: 100%;
     padding: 20px;
 }
 
-.itemnum-1 {
-    grid-column: 1 / span 2;
-    grid-row: 1 / span 2;
-    background-color: #120f0f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.itemnum-1, .itemnum-1, .itemnum-1, .itemnum-1, .itemnum-1, .itemnum-1, .itemnum-1, .itemnum-1 {
+/* Main Item Styling */
+.item6 {
     height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f4f4f4;} /* optional background color */
+    position: relative;
+}
 
+/* First Item Spanning Multiple Columns and Rows */
+.item6.itemnum1 {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+}
 
- .category_name {
+/* Overlay Text */
+.category-6-name {
     position: absolute;
-    padding: 5px;
     top: 0;
     width: 100%;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Add background for visibility */
-    color: #fff;
-    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
+    color: white;
+    padding: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 0 0 8px 8px;
+    transition: background-color 0.3s;
 }
 
-.category_name:hover {
+.category-6-name:hover {
     background-color: #407fac;
 }
 
-
-
-
-
 /* Media Query for Medium Screens (Tablets) */
-@media (max-width: 1024px){
-    .grid-container-6 {
-        
+@media (max-width: 1024px) {
+    .grid-6-container {
         grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
     }
-    .item1 {
+    .item6.itemnum1 {
         grid-column: span 3; /* Make item1 span all columns */
     }
 }
 
-@media (max-width:768px) {
-    .grid-container-6
-        {
+/* Media Query for Small Screens (Mobile) */
+@media (max-width: 768px) {
+    .grid-6-container {
         grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
     }
-    .item1 {
-        grid-column: 1/ span 2; /* Span both columns */
+    .item6.itemnum1 {
+        grid-column: span 2;
     }
 }
 
 @media (max-width: 480px) {
-    .grid-container-6 {  
+    .grid-6-container {
         grid-template-columns: 1fr; /* Single column on very small screens */
     }
-    .item1 {
+    .item6.itemnum1 {
         grid-column: span 1;
     }
 }

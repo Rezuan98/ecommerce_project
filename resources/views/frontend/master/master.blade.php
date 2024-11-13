@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/category-4.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/category-5.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/category-6.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/category-7.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/slider.css') }}">
