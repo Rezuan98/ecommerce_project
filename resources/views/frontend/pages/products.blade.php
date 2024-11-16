@@ -56,7 +56,7 @@
                     <div class="product-image">
                         <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
                         <div class="overlay">
-                            <button class="btn btn-cart">Add to Cart</button>
+                            <button class="btn btn-cart" onclick="openModal()">Add to Cart</button>
                             <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
                         </div>
                     </div>
@@ -70,59 +70,7 @@
                     <div class="product-image">
                         <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
                         <div class="overlay">
-                            <button class="btn btn-cart">Add to Cart</button>
-                            <button class="btn btn-buy" onclick="alert()">Buy Now</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h6 class="product-title">Product Name</h6>
-                        <p class="price">$99.99</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
-                        <div class="overlay">
-                            <button class="btn btn-cart">Add to Cart</button>
-                            <button class="btn btn-buy">Buy Now</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h6 class="product-title">Product Name</h6>
-                        <p class="price">$99.99</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
-                        <div class="overlay">
-                            <button class="btn btn-cart">Add to Cart</button>
-                            <button class="btn btn-buy">Buy Now</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h6 class="product-title">Product Name</h6>
-                        <p class="price">$99.99</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
-                        <div class="overlay">
-                            <button class="btn btn-cart">Add to Cart</button>
-                            <button class="btn btn-buy"  >Buy Now</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h6 class="product-title">Product Name</h6>
-                        <p class="price">$99.99</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
-                        <div class="overlay">
-                            <button class="btn btn-cart">Add to Cart</button>
+                            <button class="btn btn-cart" onclick="openModal()">Add to Cart</button>
                             <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
                         </div>
                     </div>
@@ -135,8 +83,8 @@
                     <div class="product-image">
                         <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
                         <div class="overlay">
-                            <button class="btn btn-cart">Add to Cart</button>
-                            <button class="btn btn-buy">Buy Now</button>
+                            <button class="btn btn-cart" onclick="openModal()">Add to Cart</button>
+                            <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
                         </div>
                     </div>
                     <div class="product-info">
@@ -148,8 +96,60 @@
                     <div class="product-image">
                         <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
                         <div class="overlay">
-                            <button class="btn btn-cart">Add to Cart</button>
-                            <button class="btn btn-buy">Buy Now</button>
+                            <button class="btn btn-cart" onclick="openModal()">Add to Cart</button>
+                            <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h6 class="product-title">Product Name</h6>
+                        <p class="price">$99.99</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
+                        <div class="overlay">
+                            <button class="btn btn-cart" onclick="openModal()">Add to Cart</button>
+                            <button class="btn btn-buy" onclick="openModal()" >Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h6 class="product-title">Product Name</h6>
+                        <p class="price">$99.99</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
+                        <div class="overlay">
+                            <button class="btn btn-cart" onclick="openModal()">Add to Cart</button>
+                            <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h6 class="product-title">Product Name</h6>
+                        <p class="price">$99.99</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
+                        <div class="overlay">
+                            <button class="btn btn-cart" onclick="openModal()">Add to Cart</button>
+                            <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h6 class="product-title">Product Name</h6>
+                        <p class="price">$99.99</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
+                        <div class="overlay">
+                            <button class="btn btn-cart" onclick="openModal()">Add to Cart</button>
+                            <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
                         </div>
                     </div>
                     <div class="product-info">

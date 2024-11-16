@@ -50,6 +50,9 @@
             <span>Total</span>
             <span id="total">$149.98</span>
         </div>
+
+
+        <a href="{{ route('shipment') }}" class="btn btn-success pr-15px" style="padding-right:30px; padding-left:30px; margin-top:20px;">Proceed to Checkout</a>
     </div>
 </div>
 @endsection

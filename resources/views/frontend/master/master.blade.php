@@ -33,9 +33,12 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/slider.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/sidebar.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/cart.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/product-details.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/shipping-information.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/products.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/message-modal.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/fixed-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/best_selling_products.css') }}">
 </head>
 
@@ -63,9 +66,13 @@
             <!-- Main Content Section -->
            
                
-            
-          
-    
+            <div class="cart-icon">
+                <i class="fa-solid fa-cart-plus"></i>
+            </div>
+            <div class="message-icon" onclick="openChat()">
+                <i class="fa-solid fa-message"></i>
+            </div>
+            @include('frontend.master.message-modal')
         <!-- Footer Section at the Bottom -->
        
             @include('frontend.includes.footer')
