@@ -24,7 +24,7 @@
     </div>
   
     <!-- Cart Icon -->
-    <a href="#cart" class="cart">
+    <a href="{{route('cart')}}" class="cart">
       <i class="fas fa-shopping-cart"></i>
       <span class="cart-badge">3</span>
     </a>

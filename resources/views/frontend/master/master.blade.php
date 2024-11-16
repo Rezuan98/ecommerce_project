@@ -32,6 +32,9 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/slider.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/sidebar.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/cart.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/shipping-information.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/products.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/best_selling_products.css') }}">
 </head>
@@ -74,6 +77,9 @@
         {{-- <script src="{{ asset('frontend/js/header.js') }}"></script> --}}
 
         <script src="{{ asset('frontend/js/sidebar.js') }}"></script>
+        <script src="{{ asset('frontend/js/filter.js') }}"></script>
+        <script src="{{ asset('frontend/js/cart.js') }}"></script>
+        <script src="{{ asset('frontend/js/product-size-modal.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
        <!-- Bootstrap JS Bundle with Popper -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>

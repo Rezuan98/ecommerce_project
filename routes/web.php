@@ -17,5 +17,9 @@ use App\Http\Controllers\frontend\ProductController;
 Route::get('/',[IndexController::class,'index'])->name('index');
 
 Route::get('/product/details',[ProductController::class,'ProductDetails'])->name('product.details');
+Route::get('/products',[ProductController::class,'Products'])->name('products');
 Route::get('/practice/grid',[ProductController::class,'grid'])->name('grid.practice');
+
+Route::get('/product/cart',[ProductController::class,'cartPage'])->name('cart');
+Route::get('/shipment/information',[ProductController::class,'shipmentInformation'])->name('shipment');
 

@@ -1,9 +1,12 @@
 .brand-container {
     display: flex;
-    align-items: center; /* Center content vertically if needed */
+   
     gap: 5px; /* Space between text and image */
    
     padding: 5px;
+    justify-content: center;
+    margin: 0 auto; /* Horizontally centers the container */
+    max-width: 1250px;
 }
 
 .text-content {

@@ -3,8 +3,15 @@
     gap: 10px;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: auto;
-    max-width: 100%;
+   
+   align-items: center;
+   
     padding: 20px;
+    
+
+    justify-content: center;
+    margin: 0 auto; /* Horizontally centers the container */
+    max-width: 1200px;
 }
 
 /* First Item Spanning 2 Columns and 2 Rows */

@@ -3,7 +3,7 @@
     gap: 10px;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: auto;
-    max-width: 100%;
+    max-width: 90%;
     padding: 20px;
 }
 

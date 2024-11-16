@@ -1,4 +1,4 @@
-<div class="container category_container">
+<div class="categorybar_container" style="display: flex;color:green;justify-content:center;align-items:center;">
     <div class="category-item">Shop Now</div>
     <div class="category-item">Men</div>
     <div class="category-item">Women</div>

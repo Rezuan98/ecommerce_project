@@ -1,6 +1,7 @@
 .banner{
     margin:0;
     padding:0;
+    box-sizing: border-box;
 }
 .banner img{
     width:100%;
@@ -12,24 +13,31 @@
     text-align: center;
 }
 
-.category_container {
+.categorybar_container {
   
-    color: #fff;
-    padding: 10px 0;
+    color: green;
+   margin: 10px;
     width: 100%;
     display: flex;
     flex-direction: row; /* Stack items vertically */
     align-items: center; /* Center items horizontally */
 }
 
-.category_container .category-item {
+.categorybar_container .category-item {
   
     width: 100%; 
-    padding: 10px 20px;
+    padding:5px;
+    
     text-align: center; 
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Optional: separates each item */
+    transition: background-color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
 }
-
+.categorybar_container .category-item:hover {
+    background-color: green;
+    color: #fff; 
+    transform: scale(1.05); 
+    transition: 500ms; 
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow effect */ } */
 
 /* bulk-container start */
 
