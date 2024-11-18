@@ -1,5 +1,5 @@
 /* Basic Reset */
-*,
+/* *,
 *::before,
 *::after {
     box-sizing: border-box;
@@ -7,23 +7,36 @@
     padding: 0;
 }
 
-html, body {
+html, body {  
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden; /* Prevent horizontal scroll
+} */
+
+.nav_super_class {
+    background-color: #236a6b;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
+.nav_common_container {
+
+    width: 90%;
+   
+   
+}
 /* Navbar Styling */
 .header {
-    background-color: #236a6b;
+   
     padding: 10px 20px;
     display: flex;
-    align-items: center;
+    
     justify-content: space-between;
     color: #fff;
-    font-family: Arial, sans-serif;
-    width: 100%;
+    
+    
     position: relative;
 }
 

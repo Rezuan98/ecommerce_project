@@ -1,12 +1,17 @@
 .category-2-container {
     display: grid;
-    gap: 10px;
+    
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: auto;
-    max-width: 90%;
-    padding: 20px;
+    gap: 10px;
+    /* max-width: 90%;  */
+    margin: 0 auto;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    
 }
-
+ 
 /* Grid Item Styles */
 .item1 {
     grid-column: 1 / span 2;
@@ -16,14 +21,23 @@
 }
 
 .item2, .item3, .item4, .item5, .item6-, .item7, .item8, .item9 {
-    height: 300px;
+    position: relative; /* Ensure category overlay positions correctly */
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative; /* Ensure category overlay positions correctly */
+   
     overflow: hidden; /* Ensures the overlay stays within the boundaries */
+}
+
+.category-2-container  .category-2 img {
+
+    object-fit: cover;
+    width: 100%; /* Make the image take the full width */
+    height: 100%; /* Make the image take the full height */
+    object-fit: cover; /* Ensure the image scales while maintaining aspect ratio */
+    border-radius: 8px;
 }
 
 /* Category Overlay Title */
@@ -51,12 +65,13 @@
         grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
     }
     .item1 {
-        grid-column: span 3; /* Make item1 span all columns */
+        grid-column: 1/ span 2; /* Make item1 span all columns */
     }
 }
 
-@media (max-width: 768px) {
+@media (min-width:350px) and (max-width: 768px) {
     .category-2-container {
+        display: grid;
         grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
     }
     .item1 {
@@ -64,7 +79,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 350px) {
     .category-2-container {
         grid-template-columns: 1fr; /* Single column on very small screens */
     }

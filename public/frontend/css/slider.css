@@ -6,6 +6,7 @@
     height: 60vh; /* Large height */
     margin: auto;
     overflow: hidden;
+    margin-top: 100px;
 }
 
 /* Inner slider */

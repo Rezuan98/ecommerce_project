@@ -1,9 +1,11 @@
 .category-4-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 5px;
+    display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+    
+    gap: 10px;
+    width: 100%;
+    
+    /* padding: 5px; */
     justify-content: center;
 }
 
@@ -15,7 +17,10 @@
     overflow: hidden;
     text-align: center;
     transition: transform 0.2s;
-    height: 260px;
+    height: 200px;
+    
+    
+    
     position: relative;
 }
 
@@ -49,4 +54,17 @@
 .category-4-name:hover {
     background-color: #e55b50; /* Change background on hover */
     color: white;
+}
+
+
+@media (min-width:350px) and (max-width:768px){
+   
+    .category-4-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+        
+        gap: 10px;
+        width: 100%;
+
+}
 }

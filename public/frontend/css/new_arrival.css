@@ -1,13 +1,19 @@
 .new-arrival-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 5px;
-    justify-content: center;
+
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    width: 100%;
+
+
+    gap:10px 5px;
+    justify-content: start;
+    
+
+    
+
 }
 
-/* Product Card */
 .new-arrival-card {
     background-color: #fff;
     border-radius: 10px;
@@ -16,6 +22,8 @@
     text-align: center;
     transition: transform 0.2s;
     height: 180px;
+    width: 150px;
+    /* Ensure consistent card size */
     position: relative;
 }
 
@@ -27,18 +35,23 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* Ensures images are cropped proportionally */
 }
 
-/* New Arrival Name Styling */
 .new_arrival_name {
     position: absolute;
-    top: 0; /* Aligns to the top */
-    left: 0; /* Start from the left edge */
-    width: 100%; /* Full width of the card */
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    top: 0;
+    /* Aligns to the top */
+    left: 0;
+    /* Start from the left edge */
+    width: 100%;
+    /* Full width of the card */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent background */
     color: #060606;
     padding: 5px 10px;
-    border-radius: 0 0 5px 5px; /* Rounded bottom corners for overlay */
+    border-radius: 0 0 5px 5px;
+    /* Rounded bottom corners for overlay */
     font-size: smaller;
     font-weight: normal;
     text-align: center;
@@ -47,6 +60,89 @@
 }
 
 .new_arrival_name:hover {
-    background-color: #e55b50; /* Change background on hover */
+    background-color: #e55b50;
+    /* Change background on hover */
     color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+
+
+    .new-arrival-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        width: 100%;
+
+        /* padding: 10px; Add padding for smaller screens */
+        gap: 5px 5px;
+        /* Reduce spacing further */
+        justify-content: start;
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 768px) {
+
+
+     .super_class {
+
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+     }
+    .common_container {
+
+        width: 100%;
+        justify-content: center;
+    }
+    .new-arrival-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        width: 100%;
+
+        
+
+        /* padding: 10px; Add padding for smaller screens */
+        gap: 5px 5px;
+        /* Reduce spacing further */
+        
+        overflow-x: hidden;
+    }
+
+    .new-arrival-card {
+        height: 200px;
+        /* Smaller cards */
+       
+        overflow-x: hidden;
+    }
+
+    .new_arrival_name {
+        font-size: smaller;
+        /* Adjust text size */
+        padding: 3px 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .new-arrival-container {
+        flex-direction: column;
+        /* Stack cards vertically */
+        padding: 5px;
+    }
+
+    .new-arrival-card {
+        width: 90%;
+        /* Full width on small screens */
+        max-width: 300px;
+        /* Prevent cards from becoming too wide */
+        height: auto;
+        /* Adjust height dynamically */
+    }
+
+    .new_arrival_name {
+        font-size: 0.8rem;
+        /* Adjust font size further */
+    }
 }
