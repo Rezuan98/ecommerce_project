@@ -1,20 +1,84 @@
-let currentIndex = 0;
-const slides = document.querySelectorAll('.slide');
-const totalSlides = slides.length;
+const slider = document.getElementById('slider');
+const leftArrow = document.getElementById('left-arrow');
+const rightArrow = document.getElementById('right-arrow');
 
-// Function to change slide
-function changeSlide(direction) {
-    currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
-    updateSlidePosition();
-}
+// Settings
+const logoWidth = slider.querySelector('.logo').offsetWidth + 20; // Logo width + margin
+let currentPosition = 0;
 
-// Function to update the slide position
-function updateSlidePosition() {
-    const slider = document.querySelector('.slider');
-    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
+// Move slider to the right
+rightArrow.addEventListener('click', () => {
+  const maxScroll = slider.scrollWidth - slider.parentElement.offsetWidth; // Total scrollable width
+  if (Math.abs(currentPosition) < maxScroll) {
+    currentPosition -= logoWidth * 2; // Scroll by 6 logos
+    slider.style.transform = `translateX(${currentPosition}px)`;
+  }
+});
 
-// Automatic slide change every 3 seconds
-setInterval(() => {
-    changeSlide(1);
-}, 3000);
+// Move slider to the left
+leftArrow.addEventListener('click', () => {
+  if (currentPosition < 0) {
+    currentPosition += logoWidth * 2; // Scroll back by 6 logos
+    slider.style.transform = `translateX(${currentPosition}px)`;
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const slider = document.getElementById('slider');
+// const leftArrow = document.getElementById('left-arrow');
+// const rightArrow = document.getElementById('right-arrow');
+
+
+// const columnWidth = slider.querySelector('.column').offsetWidth + 20; 
+// let currentPosition = 0;
+
+
+// rightArrow.addEventListener('click', () => {
+//   const maxScroll = -(slider.scrollWidth - slider.parentElement.offsetWidth);
+//   if (currentPosition > maxScroll) {
+//     currentPosition -= columnWidth;
+//     slider.style.transform = `translateX(${currentPosition}px)`;
+//   }
+// });
+
+// // Move slider to the left
+// leftArrow.addEventListener('click', () => {
+//   if (currentPosition < 0) {
+//     currentPosition += columnWidth;
+//     slider.style.transform = `translateX(${currentPosition}px)`;
+//   }
+// });

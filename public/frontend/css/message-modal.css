@@ -1,8 +1,8 @@
 /* Message Icon */
 .message-icon {
     position: fixed;
-    top: 50%;
-    right: 20px;
+    bottom: 15%;
+    right: 10px;
     
     width: 60px;
     height: 60px;
