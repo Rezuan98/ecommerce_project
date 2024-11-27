@@ -33,6 +33,11 @@
         <i class="fas fa-shopping-cart"></i>
         <span class="cart-badge">3</span>
       </a>
+
+
+      <div class="hamburger" id="hamburger">
+        <i class="fa-solid fa-bars"></i>
+    </div>
     </header>
     
   </div>

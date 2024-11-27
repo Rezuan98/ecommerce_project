@@ -2,184 +2,60 @@
 
 @section('content')
 
-<div class="parent-container">
-    <!-- Sidebar Section -->
-    <div class="child-1">
-        <div class="sidebar">
-            <h5>Categories</h5>
-            <ul class="category-list">
-                <li>
-                    <input type="checkbox"> New Arrival ⚡
-                </li>
-                <li>
-                    <input type="checkbox"> Top Selling ⚡
-                </li>
-                <li>
-                    <input type="checkbox"> Free Delivery ⚡
-                </li>
-                <li>
-                    Mens
-                    <ul class="subcategory-list">
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar Section -->
+        <div class="col-lg-3 col-md-2 d-none d-md-block m-0 p-0" >
+            <div class="sidebar">
+                <h2 class="sidebar-title">Categories</h2>
+                <ul class="category-list">
+                    @foreach ($allcategory as $category)
                         <li>
-                            <input type="checkbox"> Half Sleeve T-Shirt
-                            <ul class="sub-subcategory-list">
-                                <li><input type="checkbox"> Blank</li>
-                                <li><input type="checkbox"> Printed</li>
+                            <span class="category">{{ $category->name }}</span>
+                            <ul class="subcategory-list">
+                                @foreach ($category->subcategories as $subcategory)
+                                    <li>
+                                        <a href="{{ route('subcategory.products', ['id' => $subcategory->id]) }}" class="subcategory-link">
+                                            {{ $subcategory->subcategory_name }}
+                                        </a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </li>
-                        <li>
-                            <input type="checkbox"> Full Sleeve T-Shirt
-                            <ul class="sub-subcategory-list">
-                                <li><input type="checkbox"> Blank</li>
-                                <li><input type="checkbox"> Printed</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Main Content Section-->
-    <div class="child-2">
-        <!--Filter Section-->
-        <div class="filter">
-            <input type="text" placeholder="Search a product" class="search-input">
-            <button class="btn clear-btn">Clear refinements</button>
-        </div>
-
-        <!-- Products Section -->
-        <div class="products">
-            <div class="product-grid">
-                <!-- Sample Product Card -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
-                        <div class="overlay">
-                            <button class="btn btn-cart" onclick="openModal()">Add to Cart</button>
-                            <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h6 class="product-title" >Product Name</h6>
-                        <p class="price">$99.99</p>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
-                        <div class="overlay">
-                            <button class="btn btn-cart" onclick="openModal()">Add to Cart</button>
-                            <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h6 class="product-title">Product Name</h6>
-                        <p class="price">$99.99</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
-                        <div class="overlay">
-                            <button class="btn btn-cart" onclick="openModal()">Add to Cart</button>
-                            <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h6 class="product-title">Product Name</h6>
-                        <p class="price">$99.99</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
-                        <div class="overlay">
-                            <button class="btn btn-cart" onclick="openModal()">Add to Cart</button>
-                            <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h6 class="product-title">Product Name</h6>
-                        <p class="price">$99.99</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
-                        <div class="overlay">
-                            <button class="btn btn-cart" onclick="openModal()">Add to Cart</button>
-                            <button class="btn btn-buy" onclick="openModal()" >Buy Now</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h6 class="product-title">Product Name</h6>
-                        <p class="price">$99.99</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
-                        <div class="overlay">
-                            <button class="btn btn-cart" onclick="openModal()">Add to Cart</button>
-                            <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h6 class="product-title">Product Name</h6>
-                        <p class="price">$99.99</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
-                        <div class="overlay">
-                            <button class="btn btn-cart" onclick="openModal()">Add to Cart</button>
-                            <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h6 class="product-title">Product Name</h6>
-                        <p class="price">$99.99</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{{ asset('product_images/p1.jpg') }}" alt="Product Name">
-                        <div class="overlay">
-                            <button class="btn btn-cart" onclick="openModal()">Add to Cart</button>
-                            <button class="btn btn-buy" onclick="openModal()">Buy Now</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h6 class="product-title">Product Name</h6>
-                        <p class="price">$99.99</p>
-                    </div>
-                </div>
-                <!-- Duplicate product-card for more products -->
+                    @endforeach
+                </ul>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- Modal Structure -->
-<div id="sizeModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <h3 class="modal-title">Choose Your Size</h3>
-        <p class="modal-description">Select your desired size from the options below.</p>
-        <form id="sizeForm">
-            <label for="size" class="size-label">Choose a size:</label>
-            <select id="size" name="size" required>
-                <option value="" disabled selected>Select size</option>
-                <option value="S">Small</option>
-                <option value="M">Medium</option>
-                <option value="L">Large</option>
-                <option value="XL">Extra Large</option>
-            </select>
-            <button type="submit" class="btn btn-confirm">Confirm</button>
-        </form>
+        <!-- Product Section -->
+        <div class="col-lg-9 col-md-10 col-sm-12">
+            <div class="container">
+
+                
+                @foreach ($products as $item)
+                <div class="product-card">
+                    <div class="card-image">
+                        <a href="{{ route('product.details', [$item->id]) }}">
+                            <img src="{{ asset('/storage/' . $item->image) }}" alt="{{ $item->name }}">
+                        </a>
+                    </div>
+                    <div class="card-overlay">
+                        <h3 class="product-title">{{ $item->name }}</h3>
+                        <div class="card-buttons">
+                            <button class="price-btn">${{ $item->discount_price }}</button>
+                            <button class="cart-btn" onclick="addToCart('{{ $item->id }}', '{{ $item->name }}', '{{ $item->discount_price }}', '{{ asset('/storage/' . $item->image) }}')">
+                                <i class="fa fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            
+
+                </div>
+               
+            </div>
+        </div>
     </div>
 </div>
 

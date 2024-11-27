@@ -1,85 +1,44 @@
-/* Shipping Information Container */
-.shipping-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.shipping-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #444;
-}
-
-.shipping-form {
+/* Payment Options */
+.payment-options {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 15px;
+    justify-content: center;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group label {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.form-group input {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-.btn-submit {
-    background-color: #007bff;
-    color: #fff;
-    padding: 12px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.payment-card {
+    border: 2px solid transparent; /* Default transparent border */
+    border-radius: 8px;
     text-align: center;
+    width: 150px; /* Fixed width for cards */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for border */
+    padding: 10px; /* Padding for spacing inside the card */
+    background: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-.btn-submit:hover {
-    background-color: #0056b3;
+/* Styling the image inside the card */
+.payment-card img {
+    width: 100%;
+    display: block;
+    border-radius: 5px;
 }
 
-/* Responsive Design */
-@media (max-width: 480px) {
-    .shipping-container {
-        padding: 15px;
-    }
+/* Hide the default radio button */
+.payment-card input[type="radio"] {
+    display: none;
+}
 
-    .shipping-title {
-        font-size: 1.5rem;
-    }
+/* Apply a thick border when the card is selected */
+.payment-card input[type="radio"]:checked + img {
+    border: 6px solid #007bff; /* Thick blue border */
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 123, 255, 0.4); /* Highlight shadow */
+}
 
-    .form-group label, .form-group input {
-        font-size: 0.9rem;
-    }
-
-    .btn-submit {
-        font-size: 0.9rem;
-    }
+/* Ensure the text also changes color on selection */
+.payment-card input[type="radio"]:checked ~ p {
+    color: #007bff;
+    font-weight: bold;
 }

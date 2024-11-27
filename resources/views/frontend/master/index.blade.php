@@ -17,8 +17,8 @@
         @include('frontend.parts.category-7')
         @include('frontend.parts.category-8') 
         @include('frontend.parts.bulkorder')
-        @include('frontend.parts.slider') 
-        @include('frontend.master.message-modal') 
+        {{-- @include('frontend.parts.slider')  --}}
+        {{-- @include('frontend.master.message-modal')  --}}
 
       {{--  --}}
         

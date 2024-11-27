@@ -18,7 +18,7 @@ body {
 /* Left Container: Product Image */
 .left-container {
     flex: 1;
-    max-width: 600px;
+    max-width: 400px;
 }
 
 .product-image-details img {
@@ -30,6 +30,7 @@ body {
 /* Right Container: Product Details */
 .right-container {
     flex: 1;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -101,7 +102,19 @@ body {
 
 /* Add To Cart Button */
 .add-to-cart-btn {
-    background-color: #28a745;
+    background-color: #49f4cc;
+    color: #fff;
+    padding: 15px 20px;
+    margin-left: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.buynow_button{
+    background-color: #0d3115;
     color: #fff;
     padding: 15px 20px;
     font-size: 1rem;
@@ -114,6 +127,10 @@ body {
 
 .add-to-cart-btn:hover {
     background-color: #218838;
+    transform: scale(1.05);
+}
+.buynow_button:hover{
+    background-color: #2a685e;
     transform: scale(1.05);
 }
 
@@ -282,4 +299,130 @@ body {
     .related-product-card {
         width: 100%; /* 1 card per row */
     }
+}
+
+
+
+
+
+
+/* css for third contAINER */
+
+.delivery-info {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    width: 400px; /* Adjust as needed */
+}
+
+.address-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.address-section i {
+    margin-right: 10px;
+    color: #007bff;
+}
+
+.address-section .address {
+    flex: 1;
+}
+
+.address-section .change-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.address-section .change-link:hover {
+    text-decoration: underline;
+}
+
+.delivery-details, .return-warranty {
+    margin-bottom: 15px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.detail-item i {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #007bff;
+}
+
+.detail-item .detail-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.detail-item .detail-subtitle {
+    font-size: 12px;
+    color: #777;
+    margin: 0;
+}
+
+.detail-item .price {
+    margin-left: auto;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.return-warranty .detail-item:last-child {
+    margin-bottom: 0;
+}
+/* tabs css */
+
+.nav-tabs {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    align-items: center; /* Align the buttons vertically */
+    gap: 10px; /* Add space between the buttons */
+    border-bottom: 2px solid #ddd;
+    background-color: #f8f9fa;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.nav-tabs .nav-item {
+    text-align: center;
+}
+
+.nav-tabs .nav-link {
+    font-size: 16px;
+    padding: 10px 20px; /* Add padding for larger buttons */
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
 }

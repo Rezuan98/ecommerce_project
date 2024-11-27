@@ -14,6 +14,9 @@ html, body {
     overflow-x: hidden; /* Prevent horizontal scroll
 } */
 
+.hamburger{
+    display: none;
+}
 .nav_super_class {
     background-color: #236a6b;
     width: 100%;
@@ -142,6 +145,7 @@ html, body {
     position: relative;
 }
 
+
 /* Cart Badge */
 .cart-badge {
     position: absolute;
@@ -155,7 +159,7 @@ html, body {
 }
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
+@media (min-width:320px) and (max-width: 768px) {
     .header {
         flex-wrap: wrap;
     }
@@ -165,6 +169,10 @@ html, body {
     }
     .search-bar {
         display: none;
+    }
+    .hamburger
+    {
+        display: block;
     }
 }
 

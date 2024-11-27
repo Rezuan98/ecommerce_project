@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('ftitle')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Bootstrap CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
@@ -68,6 +69,8 @@
     
     <link rel="stylesheet" href="{{ asset('frontend/css/cart.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/message-modal.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('frontend/css/payment-modal.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('frontend/css/loader.css') }}"> --}}
     
     {{-- 
      --}}
@@ -93,11 +96,13 @@
 
 <body>
     <body>
+       
         <!-- Header Section -->
         <div class="mycontainer">
             @include('frontend.includes.header')
         
-    
+           
+            
         <!-- Navbar Section -->
     
             {{-- @include('frontend.module-1.includes.navbar') --}}
@@ -131,6 +136,7 @@
         {{-- <script src="{{ asset('frontend/js/header.js') }}"></script> --}}
 
         <script src="{{ asset('frontend/js/sidebar.js') }}"></script>
+        <script src="{{ asset('frontend/js/payment-modal.js') }}"></script>
         <script src="{{ asset('frontend/js/filter.js') }}"></script>
         <script src="{{ asset('frontend/js/cart.js') }}"></script>
         <script src="{{ asset('frontend/js/product-size-modal.js') }}"></script>
@@ -138,6 +144,17 @@
        <!-- Bootstrap JS Bundle with Popper -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+{{-- <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.getElementById("page-loader");
+        if (loader) {
+            loader.classList.add("hidden"); // Add the "hidden" class to hide the loader
+        }
+    });
+</script> --}}
+
+
+
 </body>
     
 </html>

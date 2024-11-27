@@ -5,28 +5,16 @@
     <div class="common_container">
 
         <div class="category-2-container">
-            <div class="item1"><a href="{{ route('product.details') }}"><img src="{{ asset('/product_images/p2.jpeg') }}" alt="Product 2" class="product-image">
-                <span class="category-2_name">category-2</span></a></div> <!-- Spans 2 columns and 2 rows -->
+            <div class="item1"><a href="{{ route('product.details', ['id' => $display_2->id]) }}"><img src="{{ asset('/storage/' .optional($display_2)->icon ?? 'null') }}" alt="Product 2" class="product-image">
+                <span class="category-2_name">{{ $display_2->name??'null' }}</span></a></div> <!-- Spans 2 columns and 2 rows -->
             
             
+            @foreach ($display_2_product as $item)
+            <div class="item2" class="category-2"><a href="{{ route('product.details', ['id' => $display_2->id]) }}"><img src="{{ asset('/storage/'.$item->image??'null') }}" alt="Product 2" class="product-image">
+                <span class="category-2_name">TK:{{ $item->discount_price??'null' }}  <del style="color: red">{{ $item->price??'null' }}</del> </span></a></div>
+            @endforeach
+                
             
-                <div class="item2" class="category-2"><a href="{{ route('product.details') }}"><img src="{{ asset('/product_images/p2.jpeg') }}" alt="Product 2" class="product-image">
-                    <span class="category-2_name">TK:540  <del style="color: red">TK:950</del> </span></a></div>
-            
-                    <div class="item3" class="category-2"><a href="{{ route('product.details') }}"><img src="{{ asset('/product_images/p2.jpeg') }}" alt="Product 2" class="product-image">
-                        <span class="category-2_name">TK:540  <del style="color: red">TK:950</del> </span></a></div>
-            <div class="item4" class="category-2"><a href="{{ route('product.details') }}"><img src="{{ asset('/product_images/p2.jpeg') }}" alt="Product 2" class="product-image">
-                <span class="category-2_name">TK:540  <del style="color: red">TK:950</del> </span></a></div>
-            <div class="item5" class="category-2"><a href="{{ route('product.details') }}"><img src="{{ asset('/product_images/p2.jpeg') }}" alt="Product 2" class="product-image">
-                <span class="category-2_name">TK:540  <del style="color: red">TK:950</del> </span></a></div>
-            <div class="item6-" class="category-2"><a href="{{ route('product.details') }}"><img src="{{ asset('/product_images/p2.jpeg') }}" alt="Product 2" class="product-image">
-                <span class="category-2_name">TK:540  <del style="color: red">TK:950</del> </span></a></div>
-            <div class="item7" class="category-2"><a href="{{ route('product.details') }}"><img src="{{ asset('/product_images/p2.jpeg') }}" alt="Product 2" class="product-image">
-                <span class="category-2_name">TK:540  <del style="color: red">TK:950</del> </span></a></div>
-            <div class="item8" class="category-2"><a href="{{ route('product.details') }}"><img src="{{ asset('/product_images/p2.jpeg') }}" alt="Product 2" class="product-image">
-                <span class="category-2_name">TK:540  <del style="color: red">TK:950</del> </span></a></div>
-            <div class="item9" class="category-2"><a href="{{ route('product.details') }}"><img src="{{ asset('/product_images/p2.jpeg') }}" alt="Product 2" class="product-image">
-                <span class="category-2_name">TK:540  <del style="color: red">TK:950</del> </span></a></div>
         </div>
         
     </div>
