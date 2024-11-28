@@ -6,21 +6,23 @@ function addToCart(productId, name, price, image) {
             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
         },
         body: JSON.stringify({
-            product_id: productId,
-            name: name,
-            discount_price: price, // Ensure this matches the backend expectation
-            image: image,
-            quantity: 1, // Default quantity
+            product_id: productId, // ID of the product
+            name: name,           // Product name
+            discount_price: price, // Product price
+            image: image,         // Product image URL
+            quantity: 1,          // Default quantity
         }),
     })
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert(data.success);
-                // Optionally update cart count in navbar
+                alert(data.success); // Show success message
+
+                // Update cart count in the navbar dynamically
                 const cartCountElement = document.getElementById('cart-count');
                 if (cartCountElement) {
-                    cartCountElement.innerText = data.cart.length;
+                    const newCount = Object.values(data.cart).reduce((sum, item) => sum + item.quantity, 0);
+                    cartCountElement.innerText = newCount;
                 }
             } else {
                 alert('Failed to add product to cart.');
@@ -28,9 +30,6 @@ function addToCart(productId, name, price, image) {
         })
         .catch(error => console.error('Error:', error));
 }
-
-
-
 function updateQuantity(productId, change) {
     const cartItem = document.querySelector(`.cart-item[data-id="${productId}"]`);
     const quantityInput = cartItem.querySelector('.quantity-input');
@@ -47,7 +46,10 @@ function updateQuantity(productId, change) {
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
         },
-        body: JSON.stringify({ product_id: productId, quantity: newQuantity }),
+        body: JSON.stringify({ 
+            product_id: productId, // Product ID
+            quantity: newQuantity, // Updated quantity
+        }),
     })
         .then(response => response.json())
         .then(data => {
@@ -60,10 +62,18 @@ function updateQuantity(productId, change) {
 
                 // Update the cart total dynamically
                 updateCartTotal(data.cart);
+
+                // Update cart count in the navbar dynamically
+                const cartCountElement = document.getElementById('cart-count');
+                if (cartCountElement) {
+                    const newCount = Object.values(data.cart).reduce((sum, item) => sum + item.quantity, 0);
+                    cartCountElement.innerText = newCount;
+                }
             }
         })
         .catch(error => console.error('Error:', error));
 }
+
 
 function removeItem(productId) {
     fetch('/cart/remove', {
@@ -83,7 +93,13 @@ function removeItem(productId) {
 
                 // Update the cart total dynamically
                 updateCartTotal(data.cart);
-            }
+
+
+                const cartCountElement = document.getElementById('cart-count');
+                if (cartCountElement) {
+                    const newCount = Object.values(data.cart).reduce((sum, item) => sum + item.quantity, 0);
+                    cartCountElement.innerText = newCount;
+                }}
         })
         .catch(error => console.error('Error:', error));
 }

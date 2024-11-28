@@ -44,7 +44,7 @@
                             <h3 class="product-title">{{ $product->name ?? 'No Name' }}</h3>
                             <div class="card-buttons">
                                 <button class="price-btn">${{ $product->discount_price ?? 'N/A' }}</button>
-                                <button class="cart-btn"><i class="fa-duotone fa-solid fa-cart-plus"></i></button>
+                                <button class="cart-btn" onclick="addToCart('{{ $product->id }}', '{{ $product->name }}', '{{ $product->discount_price }}', '{{ asset('/storage/' . $product->image) }}')"><i class="fa-duotone fa-solid fa-cart-plus"></i></button>
                             </div>
                         </div>
                     </div>

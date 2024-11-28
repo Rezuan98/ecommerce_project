@@ -13,6 +13,7 @@ use App\Http\Controllers\backend\ColorController;
 use App\Http\Controllers\backend\SizeController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +38,7 @@ Route::get('/products/{id}',[ShowProductController::class,'Products'])->name('pr
 Route::get('/subcategory/products/{id}',[ShowProductController::class,'subcategoryProducts'])->name('subcategory.products');
 
 Route::get('/product/cart',[ShowProductController::class,'cartPage'])->name('cart');
-Route::get('/shipment/information',[ShowProductController::class,'shipmentInformation'])->name('shipment');
+Route::get('/shipment/information',[CartController::class,'shipmentInformation'])->name('shipment');
 
 
 
@@ -157,3 +158,11 @@ Route::get('/subcategory/fetch', [SubCategoryController::class, 'fetch'])->name(
 Route::get('/get-subcategories', [SubCategoryController::class, 'getSubcategories'])->name('get.subcategories');
 
 // routes for backend end
+
+
+// order routes starts here
+
+Route::post('/order/place', [OrderController::class, 'placeOrder'])->name('order.place');
+Route::get('/order/success', [OrderController::class, 'successOrder'])->name('order.success');
+
+// order routes ends here

@@ -46,7 +46,7 @@
                     </select>
                 <div class="buttondiv d-flex justify-content-start">
                   <div class=""><button class="buynow_button">Buy Now</button></div> 
-                  <div class=""><button class="add-to-cart-btn">Add To Cart</button></div>
+                  <div class=""><button onclick="addToCart('{{ $product_details->id }}', '{{ $product_details->name }}', '{{ $product_details->discount_price }}', '{{ asset('/storage/' . $product_details->image) }}')" class="add-to-cart-btn">Add To Cart</button></div>
 
                 </div>
                 
@@ -240,7 +240,7 @@
             <h6 class="related-product-title">Product Name</h6>
             <p class="price">৳ 730</p>
             <div class="product-actions">
-                <button class="btn btn-cart">Add to Cart</button>
+                <button class="btn btn-cart" >Add to Cart</button>
                 <button class="btn btn-buy">Buy Now</button>
             </div>
         </div>

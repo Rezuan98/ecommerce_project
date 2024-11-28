@@ -65,8 +65,5 @@ public function Products($id){
         return view('frontend.parts.grid');
     }
 
-    public function shipmentInformation(){
-
-        return view('frontend.pages.shipment');
-    }
+    
 }

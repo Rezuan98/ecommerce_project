@@ -29,14 +29,16 @@
       </div>
     
       <!-- Cart Icon -->
-      <a href="{{route('cart')}}" class="cart">
+      <a href="{{route('cart.index')}}" class="cart">
         <i class="fas fa-shopping-cart"></i>
-        <span class="cart-badge">3</span>
+        
+        <span class="cart-badge" id="cart-count">{{ $cartCount ?? 0 }}</span>
       </a>
 
 
       <div class="hamburger" id="hamburger">
         <i class="fa-solid fa-bars"></i>
+        
     </div>
     </header>
     
