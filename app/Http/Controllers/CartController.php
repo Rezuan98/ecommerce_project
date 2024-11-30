@@ -23,6 +23,7 @@ class CartController extends Controller
             'id' => $productId,
             'name' => $request->input('name'),
             'price' => $request->input('discount_price'), // Ensure correct price parameter
+            'size'  => $request->input('size'),
             'image' => $request->input('image'),
             'quantity' => $request->input('quantity', 1),
         ];

@@ -32,8 +32,8 @@
     left: 0; /* Align title to the left edge */
     width: 100%; /* Full width for centered text */
     text-align: center; /* Center text horizontally */
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
-    color: #fff;
+    background-color: #d5d5f6; /* Semi-transparent dark background */
+    color:#121254;
     padding: 10px; /* Padding around text */
 }
 

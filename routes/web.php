@@ -84,6 +84,10 @@ Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
 
+Route::get('/cart/debug', function () {
+    return response()->json(session('cart'));
+});
+
 // cart routes end
 // routes for backend start 
 Route::get('/admin',[BackendController::class,'adminDashboard'])->name('admin');

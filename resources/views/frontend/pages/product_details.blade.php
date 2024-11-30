@@ -45,8 +45,12 @@
                         <option value="XL">white</option>
                     </select>
                 <div class="buttondiv d-flex justify-content-start">
-                  <div class=""><button class="buynow_button">Buy Now</button></div> 
-                  <div class=""><button onclick="addToCart('{{ $product_details->id }}', '{{ $product_details->name }}', '{{ $product_details->discount_price }}', '{{ asset('/storage/' . $product_details->image) }}')" class="add-to-cart-btn">Add To Cart</button></div>
+                  {{-- <div class=""><button class="buynow_button">Buy Now</button></div>  --}}
+                  <button type="button" data-bs-toggle="modal" data-bs-target="#productSizeModal" class="cart-btn" >
+
+                     Add To Cart
+                  </button>
+
 
                 </div>
                 
@@ -406,6 +410,48 @@
 
 
 
+<div class="modal fade" id="productSizeModal" tabindex="-1" aria-labelledby="productSizeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productSizeModalLabel">Choose Your Size</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="productSizeForm">
+            <div class="mb-3">
+              <label for="productSize" class="form-label">Available Sizes</label>
+              <select class="form-select" id="productSize" name="size" required>
+                <option value="" selected disabled>Select a size</option>
+                <option value="S">Small (S)</option>
+                <option value="M">Medium (M)</option>
+                <option value="L">Large (L)</option>
+                <option value="XL">Extra Large (XL)</option>
+              </select>
+            </div>
+            <div class="text-center">
+              <button type="submit"  onclick="addToCart('{{ $product_details->id }}', '{{ $product_details->name }}', '{{ $product_details->discount_price }}', '{{ asset('/storage/' . $product_details->image) }}', document.getElementById('productSize').value)" class="btn btn-success w-100">Confirm Size</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
+
+  <script>
+   
+
+
+    function getSelectedSize() {
+    const sizeDropdown = document.getElementById('productSize');
+    const selectedSize = sizeDropdown.value;
+    if (!selectedSize) {
+      alert('Please select a size before adding to cart.');
+      throw new Error('Size not selected');
+    }
+    return selectedSize;
+  }
+  </script>
 
 @endsection

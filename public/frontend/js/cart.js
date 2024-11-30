@@ -1,4 +1,4 @@
-function addToCart(productId, name, price, image) {
+function addToCart(productId, name, price, image, size) {
     fetch('/cart/add', {
         method: 'POST',
         headers: {
@@ -10,6 +10,7 @@ function addToCart(productId, name, price, image) {
             name: name,           // Product name
             discount_price: price, // Product price
             image: image,         // Product image URL
+            size: size, 
             quantity: 1,          // Default quantity
         }),
     })
@@ -118,5 +119,3 @@ function updateCartTotal(cart) {
         cartTotal.textContent = `$${total.toFixed(2)}`;
     }
 }
-
-

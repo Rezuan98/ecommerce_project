@@ -13,6 +13,8 @@
                     </div>
                     <div class="item-details">
                         <h4 class="item-title">{{ $item['name'] }}</h4>
+                        <h4 class="item-title">Size: <span class="text-info">{{ $item['size'] }}</span></h4>
+                       
                         <p class="item-price">Price: ${{ number_format($item['price'], 2) }}</p>
                         <div class="item-quantity">
                             <button class="quantity-btn decrease" onclick="updateQuantity('{{ $item['id'] }}', -1)">-</button>

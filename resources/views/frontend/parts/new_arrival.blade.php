@@ -1,6 +1,6 @@
 <div class="super_class">
     <div class="common_container">
-        <div class="headcontainer" style="background-color: rgb(253, 234, 209); text-align:center;  padding:50px;">
+        <div class="headcontainer" style="background-color:#ababed; text-align:center;  padding:50px;">
             <h2>{{ $text1->banner_head }}</h2>
         </div>
     </div>

@@ -32,6 +32,7 @@
                     <label for="phone">Phone Number</label>
                     <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
                 </div>
+                
           </div>
           <div class="col-lg-6">
             <div class="form-group">

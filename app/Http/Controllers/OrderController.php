@@ -42,6 +42,8 @@ class OrderController extends Controller
         'total_amount' => $request->input('total'),
         'shipping_address' => $request->input('address') . ', ' . $request->input('city') . ', ' . $request->input('country'),
     ]);
+
+   
     
     // Save order items
     foreach ($cart as $item) {
@@ -49,6 +51,7 @@ class OrderController extends Controller
             'order_id' => $order->id,
             'product_id' => $item['id'],
             'quantity' => $item['quantity'],
+            'size' => $item['size'],
             'price' => $item['price'],
             'total' => $item['price'] * $item['quantity'],
         ]);
