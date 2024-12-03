@@ -35,6 +35,7 @@ Route::get('/',[IndexController::class,'index'])->name('index');
 
 Route::get('/product/details/{id}',[ShowProductController::class,'ProductDetails'])->name('product.details');
 Route::get('/products/{id}',[ShowProductController::class,'Products'])->name('products');
+Route::get('/all/products/',[IndexController::class,'allProduct'])->name('all.product');
 Route::get('/subcategory/products/{id}',[ShowProductController::class,'subcategoryProducts'])->name('subcategory.products');
 
 Route::get('/product/cart',[ShowProductController::class,'cartPage'])->name('cart');
@@ -91,6 +92,7 @@ Route::get('/cart/debug', function () {
 // cart routes end
 // routes for backend start 
 Route::get('/admin',[BackendController::class,'adminDashboard'])->name('admin');
+Route::post('/store/message',[IndexController::class,'storeMessage'])->name('store.message');
 // category routes
 
 Route::get('/category/create',[CategoryController::class,'create'])->name('create.category');
@@ -169,4 +171,26 @@ Route::get('/get-subcategories', [SubCategoryController::class, 'getSubcategorie
 Route::post('/order/place', [OrderController::class, 'placeOrder'])->name('order.place');
 Route::get('/order/success', [OrderController::class, 'successOrder'])->name('order.success');
 
+Route::get('/order/show', [OrderController::class, 'showOrder'])->name('order.show');
+Route::get('/shipped/orders', [OrderController::class, 'shippedOrders'])->name('shipped.orders');
+Route::get('/completed/orders', [OrderController::class, 'completedOrders'])->name('completed.orders');
+Route::get('/canceled/orders', [OrderController::class, 'canceledOrders'])->name('canceled.orders');
+Route::get('/delete/order/{id}', [OrderController::class,'deleteOrder'])->name('delete.order');
+Route::get('/order/details/{id}', [OrderController::class, 'orderDetails'])->name('order.details');
+
+
+Route::post('/update/order/status/{id}', [OrderController::class, 'updateOrderStatus'])->name('update.order.status');
+
+Route::post('/update/payment/status/{id}', [OrderController::class, 'updatePaymentStatusSingle'])->name('update.payment.status.single');
+
+
+
+
+
+
 // order routes ends here
+
+Route::get('/show/unread/message',[BackendController::class, 'showUnreadMessage'])->name('show.unread.message');
+Route::delete('/delete/unread/message/{id}',[BackendController::class,'deleteUnreadMessage'])->name('delete.unread.message');
+Route::delete('/delete/read/message/{id}',[BackendController::class,'deleteReadMessage'])->name('delete.read.message');
+Route::get('/show/all/message',[BackendController::class,'showAllMessage'])->name('show.all.message');

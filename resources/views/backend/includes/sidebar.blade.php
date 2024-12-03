@@ -101,8 +101,33 @@
                     </div>
 
 
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseorders" aria-expanded="false" aria-controls="collapseorders">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                     Orders
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseorders" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="{{ route('create.banner') }}">All Orders</a>
+                            <a class="nav-link" href="{{ route('order.show') }}">Pending Orders</a>
+                            <a class="nav-link" href="{{ route('shipped.orders') }}">Shipped Orders</a>
+                            <a class="nav-link" href="{{ route('completed.orders') }}">Completed Orders</a>
+                            <a class="nav-link" href="{{ route('canceled.orders') }}">Canceled Orders</a>
+                        </nav>
+                    </div>
 
                     
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsemessages" aria-expanded="false" aria-controls="collapsemessages">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                     Messages
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapsemessages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="{{ route('create.banner') }}">New Message</a>
+                            <a class="nav-link" href="{{ route('index.banner') }}">All Message</a>
+                        </nav>
+                    </div>
 
 
 

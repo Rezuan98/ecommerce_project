@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Subcategory;
 use App\Models\Product;
 use App\Models\DisplayBanner;
+use App\Models\Message;
 
 class IndexController extends Controller
 {
@@ -69,6 +71,8 @@ class IndexController extends Controller
          $card_2 = Category::where('home_position',7)->get();
          $card_3 = Category::where('home_position',8)->get();
 
+         $catagory_bar = Category::where('home_position',11)->get();
+
 
          $products = Category::where('home_position',9)->with('product')->get();
 
@@ -88,10 +92,36 @@ class IndexController extends Controller
          
          return view('frontend.master.index', compact('category', 'display_1', 'display_1_product', 'display_2', 
          'display_2_product','display_3','display_3_products','card_1','card_2','card_3','products','display_4',
-         'display_4_product','topbanner','text1','text2'));
+         'display_4_product','topbanner','text1','text2','catagory_bar'));
     }
     
               
-      
+      public function storeMessage(Request $request){
+
+        $message = new Message();
+        $message->user_id = auth()->check() ? auth()->id() : null;  // If user is logged in, use auth()->id(), otherwise set user_id to null
+
+    // Step 3: Assign other input values
+    $message->name = $request->input('name');
+    $message->phone = $request->input('phone');
+    $message->message = $request->input('message');
+
+    // Step 4: Save the message to the database
+    $message->save();
+
+    return redirect()->back();
+
+      }
     
+
+      public function allProduct(){
+
+        $allproduct = Product::all();
+
+     
+
+         $allcategory = Category::whereIn('home_position', [1, 2, 3, 4, 5, 6, 7, 8, 9])->with('subcategories')->get();
+
+        return view('frontend.pages.all_product',compact('allproduct','allcategory'));
+      }
 }

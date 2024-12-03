@@ -36,5 +36,8 @@ class Product extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+public function orderItem(){
 
+    return $this->hasMany(Order_item::class);
+}
 }

@@ -19,7 +19,7 @@
                     <table class="table table-bordered table-striped">
                         <thead class="thead-dark">
                             
-                            <tr class="bg-color-cyan-{{ $cyan }}">
+                            <tr class="bg-color-cyan">
 
                                 <th scope="col">SL</th>
                                 <th scope="col">Category Name</th>
