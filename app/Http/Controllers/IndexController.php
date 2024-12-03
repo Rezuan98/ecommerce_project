@@ -94,6 +94,15 @@ class IndexController extends Controller
          'display_2_product','display_3','display_3_products','card_1','card_2','card_3','products','display_4',
          'display_4_product','topbanner','text1','text2','catagory_bar'));
     }
+
+    public function aboutUs(){
+
+        return view('frontend.pages.about_us');
+    }
+    public function contactUs(){
+
+        return view('frontend.pages.contact');
+    }
     
               
       public function storeMessage(Request $request){

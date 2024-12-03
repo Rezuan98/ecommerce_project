@@ -25,6 +25,10 @@ use App\Http\Controllers\OrderController;
 |
 */
 Route::get('/',[IndexController::class,'index'])->name('index');
+Route::get('/about/us',[IndexController::class,'aboutUs'])->name('about');
+Route::get('/contact/us',[IndexController::class,'contactUs'])->name('contact');
+
+
 
 // Route::get('/product/details',[ProductController::class,'ProductDetails'])->name('product.details');
 // Route::get('/products',[ProductController::class,'Products'])->name('products');

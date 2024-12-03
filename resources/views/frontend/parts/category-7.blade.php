@@ -5,7 +5,7 @@
     <div class="common_container">
 
         <div class="category-7-container"> 
-            <div class="category-7-item1"><a href="{{ route('product.details', ['id' => $display_3->id]) }}"><img src="{{ asset('/storage/' . $display_3->icon) }}" alt="Product 2" class="product-image">
+            <div class="category-7-item1"><a href="{{ route('products', ['id' => $display_3->id]) }}"><img src="{{ asset('/storage/' . $display_3->icon) }}" alt="Product 2" class="product-image">
                 <span class="category-7_name">{{ $display_3->name??'null' }}</span></a></div>
         
                 @foreach ($display_3_products as $category)

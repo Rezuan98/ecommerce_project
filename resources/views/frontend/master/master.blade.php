@@ -73,6 +73,8 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/cart.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/message-modal.css') }}"> 
     <link rel="stylesheet" href="{{ asset('frontend/css/payment-modal.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/about.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/contact.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('frontend/css/loader.css') }}"> --}}
     
     {{-- 
@@ -123,7 +125,7 @@
             <!-- Main Content Section -->
            
             
-            <div class="message-icon" onclick="openChat()">
+            <div style="background-color: rgb(9, 9, 106)" class="message-icon" onclick="openChat()">
                 <i class="fa-solid fa-message"></i>
             </div>
            
@@ -142,6 +144,7 @@
         <script src="{{ asset('frontend/js/payment-modal.js') }}"></script>
         <script src="{{ asset('frontend/js/filter.js') }}"></script>
         <script src="{{ asset('frontend/js/cart.js') }}"></script>
+        <script src="{{ asset('frontend/js/header.js') }}"></script>
         <script src="{{ asset('frontend/js/product-size-modal.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
        <!-- Bootstrap JS Bundle with Popper -->

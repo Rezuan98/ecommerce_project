@@ -18,7 +18,7 @@
                
 
             <div class="category8-item2">
-                <a href="{{ route('product.details', ['id' => $display_4->id]) }}">
+                <a href="{{ route('products', ['id' => $display_4->id]) }}">
                     <img src="{{ asset('/storage/' . $display_4->icon) }}" alt="{{ $display_4->name }}" class="product-image">
                     <span class="category_8_name">{{ $display_4->name }}</span>
                 </a>

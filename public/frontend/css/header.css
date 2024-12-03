@@ -54,7 +54,17 @@ body, ul, h6, p {
     padding: 10px 15px;
     color: #fff;
     font-size: 1rem;
+    font-weight: bold;
   }
+  .nav-link:hover {
+    background-color: #0e0d46; /* Vibrant background color */
+    color: #ffffff; /* Ensure text contrast */
+    transform: scale(1.1); /* Slightly increase size for effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    transition: all 0.6s ease-in-out; /* Smooth transition */
+    
+}
+
   
   /* Mega Dropdown - Full Width */
 .mega-dropdown:hover .mega-dropdown-menu {
@@ -77,9 +87,10 @@ body, ul, h6, p {
   /* Ensure items are stacked vertically */
   .mega-dropdown-menu .row {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
+    flex-direction: row; /* Stack items vertically */
     padding: 0 20px; /* Add padding */
   }
+ 
   
   .mega-dropdown-column {
     flex: 1 1 auto; /* Allow columns to expand naturally */
@@ -109,6 +120,7 @@ body, ul, h6, p {
     text-decoration: none;
     color: #f9f5f5;
     font-size: 0.9rem;
+    
     padding: 8px 10px; /* Add padding for better clickability */
     display: block; /* Ensure full clickable area */
     transition: color 0.3s;
@@ -184,6 +196,7 @@ body, ul, h6, p {
       width: 100%;
       z-index: 1000;
     }
+    
   
     .nav-links ul.show {
       display: flex;

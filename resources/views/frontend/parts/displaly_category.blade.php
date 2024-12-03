@@ -5,7 +5,7 @@
         <div class="display-category-container">
             @if ($display_1)
                 <div class="display-category-items items1">
-                    <a href="{{ route('product.details', ['id' => $display_1->id]) }}">
+                    <a href="{{ route('products', ['id' => $display_1->id]) }}">
                         <img src="{{ asset('storage/' . $display_1->icon) }}" alt="Product 2" class="product-image">
                         <span class="display-category-title">{{ $display_1->name }}</span>
                     </a>

@@ -10,7 +10,7 @@
         <nav class="nav-links">
           <ul class="navbar">
             <li class="nav-item">
-              <a href="#" class="nav-link">Home</a>
+              <a href="{{ route('index') }}" class="nav-link">Home</a>
             </li>
             <li class="nav-item dropdown mega-dropdown">
               <a href="#" class="nav-link">Categories</a>
@@ -19,49 +19,64 @@
                   <div class="col">
                     <h6>Electronics</h6>
                     <ul>
-                      <li><a href="#">Smartphones</a></li>
-                      <li><a href="#">Laptops</a></li>
-                      <li><a href="#">Tablets</a></li>
-                      <li><a href="#">Accessories</a></li>
-                    </ul>
-                  </div>
-                  <div class="col">
+                        <div class="flex-colum" style="display: flex;flex-direction:column;">
+                            <div> <li><a href="{{ route('all.product') }}">Smartphones</a></li></div>
+                            <div> <li><a href="{{ route('all.product') }}">Smartphones</a></li></div>
+                             <div><li><a href="{{ route('all.product') }}">Tablets</a></li></div>
+                            <div> <li><a href="{{ route('all.product') }}">Accessories</a></li></div>
+                        </div>
+                    <div class="col">
                     <h6>Clothing</h6>
                     <ul>
-                      <li><a href="#">Men's Wear</a></li>
-                      <li><a href="#">Women's Wear</a></li>
-                      <li><a href="#">Kids' Wear</a></li>
-                      <li><a href="#">Accessories</a></li>
+                        <div class="flex-colum" style="display: flex;flex-direction:column;">
+                            <div> <li><a href="{{ route('all.product') }}">Smartphones</a></li></div>
+                            <div> <li><a href="{{ route('all.product') }}">Smartphones</a></li></div>
+                             <div><li><a href="{{ route('all.product') }}">Tablets</a></li></div>
+                            <div> <li><a href="{{ route('all.product') }}">Accessories</a></li></div>
+                        </div>
+                        <div class="col">
+                            <h6>Clothing</h6>
+                            <ul>
+                                <div class="flex-colum" style="display: flex;flex-direction:column;">
+                                    <div> <li><a href="{{ route('all.product') }}">Smartphones</a></li></div>
+                                    <div> <li><a href="{{ route('all.product') }}">Smartphones</a></li></div>
+                                     <div><li><a href="{{ route('all.product') }}">Tablets</a></li></div>
+                                    <div> <li><a href="{{ route('all.product') }}">Accessories</a></li></div>
+                                </div>
+                                <div class="col">
+                                    <h6>Clothing</h6>
+                                    <ul>
+                                        <div class="flex-colum" style="display: flex;flex-direction:column;">
+                                            <div> <li><a href="{{ route('all.product') }}">Smartphones</a></li></div>
+                                            <div> <li><a href="{{ route('all.product') }}">Smartphones</a></li></div>
+                                             <div><li><a href="{{ route('all.product') }}">Tablets</a></li></div>
+                                            <div> <li><a href="{{ route('all.product') }}">Accessories</a></li></div>
+                                        </div>
+                                    </ul>
+                                  </div>
+                            </ul>
+                          </div>
+                        
                     </ul>
                   </div>
-                  <div class="col">
-                    <h6>Clothing</h6>
-                    <ul>
-                      <li><a href="#">Men's Wear</a></li>
-                      <li><a href="#">Women's Wear</a></li>
-                      <li><a href="#">Kids' Wear</a></li>
-                      <li><a href="#">Accessories</a></li>
+                  
+                  
+                  
                     </ul>
                   </div>
-                  <div class="col">
-                    <h6>Clothing</h6>
-                    <ul>
-                      <li><a href="#">Men's Wear</a></li>
-                      <li><a href="#">Women's Wear</a></li>
-                      <li><a href="#">Kids' Wear</a></li>
-                      <li><a href="#">Accessories</a></li>
-                    </ul>
-                  </div>
+                 
                   <!-- Additional columns as needed -->
                 </div>
               </div>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">About</a>
+              <a href="{{ route('about') }}" class="nav-link">About</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Contact</a>
+              <a href="{{ route('contact') }}" class="nav-link">Contact</a>
             </li>
+            <li class="nav-item">
+              
           </ul>
         </nav>
   
@@ -73,15 +88,17 @@
           </div>
           <a href="{{ route('cart.index') }}" class="cart">
             <i class="fas fa-shopping-cart"></i>
-            <span class="cart-badge">{{ $cartCount ?? 0 }}</span>
-          </a>
+            <span class="cart-badge" id="cart-count">{{ $cartCount ?? 0 }}</span>
+        </a>
+        
         </div>
   
-        <!-- Hamburger for Mobile -->
-        <div class="hamburger">
-          <i class="fa-solid fa-bars"></i>
-        </div>
+
+
+
       </header>
+     
+    
     </div>
   </div>
   

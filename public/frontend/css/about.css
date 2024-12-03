@@ -1,0 +1,107 @@
+/* About Section Styling */
+.about-section {
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    background-color: #191970; /* Dark Navy Blue */
+    /* padding: 20px 0; */
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #0a0a3c;
+    padding: 50px 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+/* About Content */
+.about-content {
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.about-text {
+    margin-bottom: 20px;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Why Choose Us */
+.why-choose-us {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #0f0f4c;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+.why-choose-us h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.feature {
+    flex: 1 1 calc(33.333% - 20px); /* Three items per row */
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #191970;
+    color: #ffffff;
+}
+
+.feature i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #ff6f61;
+}
+
+.feature h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (min-width:320px) and (max-width: 768px) {
+    .about-content .row {
+        flex-direction: column;
+    }
+
+    .features {
+        flex-direction: column;
+    }
+
+    .feature {
+        flex: 1 1 100%; /* One item per row */
+    }
+}

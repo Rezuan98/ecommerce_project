@@ -193,3 +193,25 @@
   .btn-success:hover {
     background-color: #218838;
   }
+
+  /* --------------------------------------------------- */
+  /* Default styles for all screens */
+.nav_super_class {
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.logo a {
+    font-size: 24px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Hamburger Icon Styles */
+

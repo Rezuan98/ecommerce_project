@@ -5,7 +5,7 @@
     <div class="common_container">
 
         <div class="category-2-container">
-            <div class="item1"><a href="{{ route('product.details', ['id' => $display_2->id]) }}"><img src="{{ asset('/storage/' .optional($display_2)->icon ?? 'null') }}" alt="Product 2" class="product-image">
+            <div class="item1"><a href="{{ route('products', ['id' => $display_2->id]) }}"><img src="{{ asset('/storage/' .optional($display_2)->icon ?? 'null') }}" alt="Product 2" class="product-image">
                 <span class="category-2_name">{{ $display_2->name??'null' }}</span></a></div> <!-- Spans 2 columns and 2 rows -->
             
             
