@@ -62,7 +62,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-
+    Route::get('/admin',[BackendController::class,'adminDashboard'])->name('admin');
 
 
 
@@ -95,7 +95,7 @@ Route::get('/cart/debug', function () {
 
 // cart routes end
 // routes for backend start 
-Route::get('/admin',[BackendController::class,'adminDashboard'])->name('admin');
+
 Route::post('/store/message',[IndexController::class,'storeMessage'])->name('store.message');
 // category routes
 

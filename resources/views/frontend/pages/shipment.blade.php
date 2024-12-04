@@ -39,8 +39,8 @@
                 <label for="location">Shipping Location</label>
                 <select id="location" name="location" class="form-control">
                     <option value="">Select Area</option>
-                    <option value="inside-dhaka">Inside Dhaka</option>
-                    <option value="outside-dhaka">Outside Dhaka</option>
+                    <option value="inside-dhaka">Inside Dhaka(60Tk)</option>
+                    <option value="outside-dhaka">Outside Dhaka(120Tk)</option>
                 </select>
             </div>
             

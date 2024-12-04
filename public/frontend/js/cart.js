@@ -17,7 +17,7 @@ function addToCart(productId, name, price, image, size) {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert(data.success); // Show success message
+            
 
                 // Update cart count in the navbar dynamically
                 const cartCountElement = document.getElementById('cart-count');
@@ -31,79 +31,106 @@ function addToCart(productId, name, price, image, size) {
         })
         .catch(error => console.error('Error:', error));
 }
-function updateQuantity(productId, change) {
-    const cartItem = document.querySelector(`.cart-item[data-id="${productId}"]`);
+function updateQuantity(productId, size, change) {
+    // alert('ProductID: ' + productId + ', Size: ' + size);
+
+    // Correct selector: ensure that the cart items have the correct data-id and data-size
+    const cartItem = document.querySelector(`.cart-item[data-id="${productId}"][data-size="${size}"]`);
+
+    if (!cartItem) {
+        console.error("Cart item not found!");
+        return;
+    }
+
     const quantityInput = cartItem.querySelector('.quantity-input');
     const itemTotal = cartItem.querySelector('.item-total p');
     const price = parseFloat(cartItem.dataset.price);
 
     let newQuantity = parseInt(quantityInput.value) + change;
 
-    if (newQuantity <= 0) return; // Prevent quantity less than 1
+    if (newQuantity <= 0) return; // Prevent quantity from going below 1
 
+    // Update the cart on the backend
     fetch('/cart/update', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
         },
-        body: JSON.stringify({ 
-            product_id: productId, // Product ID
-            quantity: newQuantity, // Updated quantity
+        body: JSON.stringify({
+            product_id: productId,   // Send productId
+            size: size,              // Send size
+            quantity: newQuantity,   // Updated quantity
         }),
     })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Update quantity in the input field
-                quantityInput.value = newQuantity;
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Update the quantity in the input field
+            quantityInput.value = newQuantity;
 
-                // Update item total price
-                itemTotal.textContent = `$${(price * newQuantity).toFixed(2)}`;
+            // Update item total price
+            itemTotal.textContent = `$${(price * newQuantity).toFixed(2)}`;
 
-                // Update the cart total dynamically
-                updateCartTotal(data.cart);
+            // Update the cart total dynamically
+            updateCartTotal(data.cart);
 
-                // Update cart count in the navbar dynamically
-                const cartCountElement = document.getElementById('cart-count');
-                if (cartCountElement) {
-                    const newCount = Object.values(data.cart).reduce((sum, item) => sum + item.quantity, 0);
-                    cartCountElement.innerText = newCount;
-                }
+            // Update cart count in the navbar dynamically
+            const cartCountElement = document.getElementById('cart-count');
+            if (cartCountElement) {
+                const newCount = Object.values(data.cart).reduce((sum, item) => sum + item.quantity, 0);
+                cartCountElement.innerText = newCount;
             }
-        })
-        .catch(error => console.error('Error:', error));
+        }
+    })
+    .catch(error => console.error('Error:', error));
 }
 
 
-function removeItem(productId) {
+
+function removeItem(productId, size) {
+    // Find the cart item element to remove
+    const cartItem = document.querySelector(`.cart-item[data-id="${productId}"][data-size="${size}"]`);
+
+    if (!cartItem) {
+        console.error("Cart item not found!");
+        return;
+    }
+
+    // Send request to remove the item from the cart
     fetch('/cart/remove', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
         },
-        body: JSON.stringify({ product_id: productId }),
+        body: JSON.stringify({
+            product_id: productId,  // Send productId
+            size: size,             // Send size
+        }),
     })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Remove the cart item from the DOM
-                const cartItem = document.querySelector(`.cart-item[data-id="${productId}"]`);
-                cartItem.remove();
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Remove the cart item from the DOM
+            cartItem.remove();
 
-                // Update the cart total dynamically
-                updateCartTotal(data.cart);
+            // Update the cart total dynamically
+            updateCartTotal(data.cart);
 
-
-                const cartCountElement = document.getElementById('cart-count');
-                if (cartCountElement) {
-                    const newCount = Object.values(data.cart).reduce((sum, item) => sum + item.quantity, 0);
-                    cartCountElement.innerText = newCount;
-                }}
-        })
-        .catch(error => console.error('Error:', error));
+            // Update cart count in the navbar dynamically
+            const cartCountElement = document.getElementById('cart-count');
+            if (cartCountElement) {
+                const newCount = Object.values(data.cart).reduce((sum, item) => sum + item.quantity, 0);
+                cartCountElement.innerText = newCount;
+            }
+        } else {
+            console.error('Failed to remove item from the cart.');
+        }
+    })
+    .catch(error => console.error('Error:', error));
 }
+
 
 function updateCartTotal(cart) {
     let total = 0;

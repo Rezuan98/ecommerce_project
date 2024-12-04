@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Subcategory;
 use Str;
 
 class categoryController extends Controller
@@ -86,6 +87,14 @@ class categoryController extends Controller
     }
 
     public function deleteCategory($id){
+
+        $subcategory = Subcategory::find($id);
+
+       
+        if($subcategory){
+          
+            return redirect()->back()->with('error', 'Please delete the child subcategories and try again.');;
+        }
 
         $delete_category = Category::where('id',$id)->delete();
         return redirect()->back()->with('success', 'Category Deleted!');
