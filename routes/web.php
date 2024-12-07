@@ -44,6 +44,7 @@ Route::get('/subcategory/products/{id}',[ShowProductController::class,'subcatego
 
 Route::get('/product/cart',[ShowProductController::class,'cartPage'])->name('cart');
 Route::get('/shipment/information',[CartController::class,'shipmentInformation'])->name('shipment');
+// route for buy from product details page:
 
 
 

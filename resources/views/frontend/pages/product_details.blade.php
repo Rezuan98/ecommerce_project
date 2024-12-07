@@ -19,6 +19,7 @@
         <div class="detail-texts">
             <input type="hidden" id="productId" value="{{ $product_details->id }}">
             <h1 id="productName" class="product-title">{{ $product_details->name }}</h1>
+            
             <p id="productPrice" class="product-price">৳ {{ $product_details->discount_price }}</p>
             <del> <p class="text-danger">৳ {{ $product_details->price }}</p></del>
             <p class="product-description">
@@ -78,6 +79,12 @@ type="button"
 class="cart-btn" 
 onclick="handleAddToCart()">
 Add To Cart
+</button>
+<button 
+type="button" 
+class="btn btn-success" 
+onclick="handleBuyNow()">
+Buy Now
 </button>
         
 
@@ -537,6 +544,57 @@ function handleAddToCart() {
                 }
             } else {
                 alert('Failed to add product to cart.');
+            }
+        })
+        .catch((error) => console.error('Error:', error));
+}
+
+
+
+
+function handleBuyNow() {
+    const productId = document.getElementById('productId')?.value;
+    const name = document.getElementById('productName')?.innerText;
+    const price = parseFloat(document.getElementById('productPrice')?.innerText.replace('৳', '').trim());
+
+    
+    const image = document.getElementById('productImage')?.src;
+    const colorSelect = document.getElementById('colorSelect');
+    const selectedColor = colorSelect?.value;
+    const sizeSelect = document.getElementById('sizeSelect');
+    const selectedSize = sizeSelect?.value;
+    const quantityInput = document.getElementById('quantityInput');
+    const quantity = parseInt(quantityInput?.value) || 1;
+
+    if (!selectedColor || !selectedSize) {
+        alert('Please select both a color and a size.');
+        return;
+    }
+
+    const productData = {
+        product_id: productId,
+        name: name,
+        discount_price: price,
+        image: image,
+        size: selectedSize,
+        color: selectedColor,
+        quantity: quantity,
+    };
+
+    fetch('/cart/add', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+        },
+        body: JSON.stringify(productData),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.success) {
+                window.location.href = '/shipment/information';
+            } else {
+                alert('Failed to process your request. Please try again.');
             }
         })
         .catch((error) => console.error('Error:', error));

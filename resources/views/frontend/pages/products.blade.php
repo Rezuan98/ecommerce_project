@@ -106,8 +106,8 @@ let currentProduct = {};
 
 function openSizeModal(productId, productName, productPrice, productImage, colors, sizes) {
     // Store the current product data
-    currentProduct = { id: productId, name: productName, price: productPrice, image: productImage };
-
+    currentProduct = { id: productId, name: productName, currentProductPrice: productPrice, image: productImage };
+          
     // Set the product name in the modal
     document.getElementById('productSizeModalLabel').innerText = `Choose Options for ${productName}`;
 
@@ -147,11 +147,13 @@ document.getElementById('productSizeForm').addEventListener('submit', function (
         alert(`Product ID: ${currentProduct.id}\nSize: ${size}\nColor: ${color}`);
 
         // Call your addToCart function with the selected options
-        addToCart(currentProduct.id, currentProduct.name, currentProduct.price, currentProduct.image, size, color);
+        addToCart(currentProduct.id, currentProduct.name, currentProduct.currentProductPrice, currentProduct.image, size, color);
 
         // Close the modal after adding to the cart
         const sizeModal = bootstrap.Modal.getInstance(document.getElementById('productSizeModal'));
         sizeModal.hide();
+
+        
     } else {
         alert("Please select both size and color.");
     }

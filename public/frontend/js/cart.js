@@ -1,4 +1,6 @@
-function addToCart(productId, name, price, image, size,color,) {
+function addToCart(productId, name, currentProductPrice, image, size,color,) {
+
+    alert(currentProductPrice);
     fetch('/cart/add', {
         method: 'POST',
         headers: {
@@ -8,7 +10,7 @@ function addToCart(productId, name, price, image, size,color,) {
         body: JSON.stringify({
             product_id: productId, // ID of the product
             name: name,           // Product name
-            discount_price: price, // Product price
+            discount_price: currentProductPrice, // Product price
             image: image,         // Product image URL
             size: size, 
             color:color,
