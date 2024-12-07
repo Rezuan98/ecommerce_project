@@ -1,4 +1,4 @@
-function addToCart(productId, name, price, image, size) {
+function addToCart(productId, name, price, image, size,color,) {
     fetch('/cart/add', {
         method: 'POST',
         headers: {
@@ -11,6 +11,7 @@ function addToCart(productId, name, price, image, size) {
             discount_price: price, // Product price
             image: image,         // Product image URL
             size: size, 
+            color:color,
             quantity: 1,          // Default quantity
         }),
     })
@@ -31,11 +32,11 @@ function addToCart(productId, name, price, image, size) {
         })
         .catch(error => console.error('Error:', error));
 }
-function updateQuantity(productId, size, change) {
+function updateQuantity(productId, size,color, change) {
     // alert('ProductID: ' + productId + ', Size: ' + size);
 
     // Correct selector: ensure that the cart items have the correct data-id and data-size
-    const cartItem = document.querySelector(`.cart-item[data-id="${productId}"][data-size="${size}"]`);
+    const cartItem = document.querySelector(`.cart-item[data-id="${productId}"][data-size="${size}"][data-color="${color}"]`);
 
     if (!cartItem) {
         console.error("Cart item not found!");
@@ -60,6 +61,7 @@ function updateQuantity(productId, size, change) {
         body: JSON.stringify({
             product_id: productId,   // Send productId
             size: size,              // Send size
+            color:color,
             quantity: newQuantity,   // Updated quantity
         }),
     })
@@ -88,9 +90,9 @@ function updateQuantity(productId, size, change) {
 
 
 
-function removeItem(productId, size) {
+function removeItem(productId, size,color) {
     // Find the cart item element to remove
-    const cartItem = document.querySelector(`.cart-item[data-id="${productId}"][data-size="${size}"]`);
+    const cartItem = document.querySelector(`.cart-item[data-id="${productId}"][data-size="${size}"][data-color="${color}"]`);
 
     if (!cartItem) {
         console.error("Cart item not found!");
@@ -107,6 +109,7 @@ function removeItem(productId, size) {
         body: JSON.stringify({
             product_id: productId,  // Send productId
             size: size,             // Send size
+            color:color,
         }),
     })
     .then(response => response.json())

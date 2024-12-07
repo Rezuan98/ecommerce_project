@@ -22,17 +22,19 @@ class CartController extends Controller
     // Get the product details from the request
     $productId = $request->input('product_id');
     $size = $request->input('size');
+    $color = $request->input('color');
     $product = [
         'id' => $productId,
         'name' => $request->input('name'),
         'price' => $request->input('discount_price'), // Ensure correct price parameter
         'size' => $size,
+        'color' => $color,
         'image' => $request->input('image'),
         'quantity' => $request->input('quantity', 1),
     ];
 
     // Check if the product with the same ID and size already exists in the cart
-    $cartKey = $productId . '-' . $size; // Use the combination of productId and size as the unique key
+    $cartKey = $productId . '-' . $size .'-' . $color; // Use the combination of productId and size as the unique key
 
     if (isset($cart[$cartKey])) {
         // If the product with the same ID and size exists, increase the quantity
@@ -58,9 +60,10 @@ public function update(Request $request)
 
     $productId = $request->input('product_id');
     $size = $request->input('size');
+    $color = $request->input('color');
     $quantity = $request->input('quantity');
 
-    $cartKey = $productId . '-' . $size; // Unique key for product and size
+    $cartKey = $productId . '-' . $size . '-' . $color; // Unique key for product and size
 
     if (isset($cart[$cartKey])) {
         // Update the quantity in the cart
@@ -84,9 +87,10 @@ public function remove(Request $request)
     // Get the product_id and size from the request
     $productId = $request->input('product_id');
     $size = $request->input('size');
+    $color = $request->input('color');
     
     // Create a key using productId and size (e.g., '8-S')
-    $cartKey = $productId . '-' . $size;
+    $cartKey = $productId . '-' . $size . '-' . $color;
 
     // Check if the item exists in the cart and remove it
     if (isset($cart[$cartKey])) {

@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\Brand;
 use App\Models\Product;
+use App\Models\Size;
+use App\Models\Color;
 
 class ProductController extends Controller
 {
@@ -16,53 +18,58 @@ class ProductController extends Controller
         $category = Category::all();
         $subcategory = Subcategory::all();
         $brand = Brand::all();
+        $size = Size::all();
+        $color = Color::all();
 
-        return view('backend.product.create',compact('category','brand','subcategory'));
+        return view('backend.product.create',compact('category','brand','subcategory','size','color'));
     }
 
 
    
 
-public function store(Request $request)
-{
-    // Validate the incoming request
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'description' => 'nullable|string',
-        'price' => 'required|numeric|min:0',
-        'discount_price' => 'nullable|numeric|min:0',
-        'stock_quantity' => 'required|integer|min:0',
-        'category_id' => 'required|exists:categories,id',
-        'subcategory_id' => 'nullable|exists:subcategories,id',
-        'brand_id' => 'nullable|exists:brands,id',
-        'image' => 'required|image|mimes:jpg,jpeg,png|max:2048', // Max file size 2MB
-        'is_active' => 'nullable|boolean',
-    ]);
-
+    public function store(Request $request)
+    {
+        try {
+            // Handle the image upload
+            $imagePath = null;
+            if ($request->hasFile('image')) {
+                $imagePath = $request->file('image')->store('products', 'public');
+            }
     
-    $imagePath = null;
-    if ($request->hasFile('image')) {
-        $imagePath = $request->file('image')->store('products', 'public');
+            // Create a new Product instance
+            $product = new Product();
+            $product->name = $request->input('name');
+            $product->description = $request->input('description');
+            $product->price = $request->input('price');
+            $product->discount_price = $request->input('discount_price');
+            $product->stock_quantity = $request->input('stock_quantity');
+            $product->category_id = $request->input('category_id');
+            $product->subcategory_id = $request->input('subcategory_id');
+            $product->brand_id = $request->input('brand_id');
+            $product->image = $imagePath;
+            $product->is_active = $request->input('is_active', true);
+    
+            // Store the selected colors and sizes as JSON
+            // $product->colors = json_encode($request->input('color_names'));
+            // $product->sizes = json_encode($request->input('size_names'));
+
+            $product->colors = $request->input('color_names');
+            $product->sizes = $request->input('size_names');
+    
+            // Save the product
+            $product->save();
+    
+            // Redirect back with a success message
+            return redirect()->back()->with('success', 'Product added successfully!');
+        } catch (\Exception $e) {
+            // Log the error message
+            \Log::error('Product save failed: ' . $e->getMessage());
+    
+            // Optionally, you can redirect back with an error message
+            return redirect()->back()->with('error', 'Failed to add product. Please try again.');
+        }
     }
-
     
-    $product = new Product();
-    $product->name = $request->input('name');
-    $product->description = $request->input('description');
-    $product->price = $request->input('price');
-    $product->discount_price = $request->input('discount_price');
-    $product->stock_quantity = $request->input('stock_quantity');
-    $product->category_id = $request->input('category_id');
-    $product->subcategory_id = $request->input('subcategory_id');
-    $product->brand_id = $request->input('brand_id');
-    $product->image = $imagePath;
-    $product->is_active = $request->input('is_active', true); 
-   
-    $product->save();
-
-   
-    return redirect()->back()->with('success', 'Product added successfully!');
-}
 public function getSubcategories(Request $request)
 {
     
@@ -83,11 +90,21 @@ public function getSubcategories(Request $request)
     
 
    
-        public function index()
-        {
-            $products = Product::with('category', 'subcategory', 'brand')->get(); // Fetch products with relationships
-            return view('backend.product.index', compact('products'));
-        }
+public function index()
+{
+    
+    $products = Product::with('category', 'subcategory', 'brand')->get();
+    
+
+    foreach ($products as $product) {
+        $product->colors = json_decode($product->colors)?? []; 
+        $product->sizes = json_decode($product->sizes)?? [];   
+    }
+
+   
+    return view('backend.product.index', compact('products'));
+}
+
         
     
 

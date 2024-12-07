@@ -5,7 +5,7 @@
     <!-- Left Container: Product Image -->
     <div class="left-container">
         <div class="product-image-details">
-            <img src="{{ asset('/storage/'.$product_details->image) }}" alt="Product Image">
+            <img id="productImage" src="{{ asset('/storage/'.$product_details->image) }}" alt="Product Image">
         </div>
 
     </div>
@@ -17,39 +17,69 @@
     <!-- Right Container: Product Details -->
     <div class="right-container">
         <div class="detail-texts">
-            <h1 class="product-title">{{ $product_details->name }}</h1>
-            <p class="product-price">৳ {{ $product_details->discount_price }}</p>
+            <input type="hidden" id="productId" value="{{ $product_details->id }}">
+            <h1 id="productName" class="product-title">{{ $product_details->name }}</h1>
+            <p id="productPrice" class="product-price">৳ {{ $product_details->discount_price }}</p>
             <del> <p class="text-danger">৳ {{ $product_details->price }}</p></del>
             <p class="product-description">
                 {{ $product_details->description }}
             </p>
-            <div class="product-actions">
-                <label for="size">Select Size:</label>
-                <select id="size" class="product-size">
-                    <option value="S">Small</option>
-                    <option value="M">Medium</option>
-                    <option value="L">Large</option>
-                    <option value="XL">Extra Large</option>
-                </select>
-                <div class="quantity-container">
-                    <button class="quantity-btn decrease">-</button>
-                    <input type="text" value="1" class="quantity-input" readonly>
-                    <button class="quantity-btn increase">+</button>
-                </div>
-                <div class="product-actions">
-                    <label for="size">Available Colors:</label>
-                    <select id="size" class="product-size">
-                        <option value="S">Red</option>
-                        <option value="M">Green</option>
-                        <option value="L">Black</option>
-                        <option value="XL">white</option>
-                    </select>
-                <div class="buttondiv d-flex justify-content-start">
-                  {{-- <div class=""><button class="buynow_button">Buy Now</button></div>  --}}
-                  <button type="button" data-bs-toggle="modal" data-bs-target="#productSizeModal" class="cart-btn" >
 
-                     Add To Cart
-                  </button>
+
+          <!-- Select Color -->
+<label for="color">Available Colors:</label>
+<select class="form-select" id="colorSelect">
+    <option value="" disabled selected>Select color</option>
+    @if(!empty($product_details->colors) && is_array($product_details->colors))
+        @foreach ($product_details->colors as $color)
+            <option value="{{ $color }}">{{ $color }}</option>
+        @endforeach
+    @else
+        <option value="" disabled>No colors available</option>
+    @endif
+</select>
+
+<!-- Select Size -->
+<label for="size">Select Size:</label>
+<select class="form-select" id="sizeSelect">
+    <option value="" disabled selected>Select size</option>
+    @if(!empty($product_details->sizes) && is_array($product_details->sizes))
+        @foreach ($product_details->sizes as $size)
+            <option value="{{ $size }}">{{ $size }}</option>
+        @endforeach
+    @else
+        <option value="" disabled>No sizes available</option>
+    @endif
+</select>
+
+<!-- Quantity -->
+<div class="quantity-container mt-2 mb-2">
+    <button class="quantity-btn decrease" onclick="updateQuantityfromDetails(-1)">-</button>
+    <input type="text" value="1" id="quantityInput" class="quantity-input">
+
+    <button class="quantity-btn increase" onclick="updateQuantityfromDetails(1)">+</button>
+</div>
+
+<!-- Add to Cart Button -->
+
+
+
+
+
+
+
+
+
+
+
+                
+<button 
+type="button" 
+class="cart-btn" 
+onclick="handleAddToCart()">
+Add To Cart
+</button>
+        
 
 
                 </div>
@@ -62,10 +92,10 @@
 
         <!-- Size Chart Section -->
         
-    </div>
+    
 
    
-    </div>
+    
     <div class="third-container" style="width: 350px;border-radious:5px; padding:20px;">
         <div class="delivery-info">
             <div class="address-section">
@@ -441,17 +471,77 @@
 
   <script>
    
+   function updateQuantityfromDetails(change) {
+    const quantityInput = document.getElementById('quantityInput');
+    let currentQuantity = parseInt(quantityInput.value) || 1;
 
+    currentQuantity = Math.max(1, currentQuantity + change); // Prevent quantity from going below 1
+    console.log(`Updated Quantity: ${currentQuantity}`); // Debugging output
+    quantityInput.value = currentQuantity;
+}
 
-    function getSelectedSize() {
-    const sizeDropdown = document.getElementById('productSize');
-    const selectedSize = sizeDropdown.value;
-    if (!selectedSize) {
-      alert('Please select a size before adding to cart.');
-      throw new Error('Size not selected');
+function handleAddToCart() {
+    // Get product details
+    const productId = document.getElementById('productId').value;
+    const name = document.getElementById('productName').innerText;
+    const price = parseFloat(document.getElementById('productPrice').innerText.replace('৳', '').trim());
+    const image = document.getElementById('productImage').src;
+
+    // Get selected color and size
+    const colorSelect = document.getElementById('colorSelect');
+    const selectedColor = colorSelect.value;
+
+    const sizeSelect = document.getElementById('sizeSelect');
+    const selectedSize = sizeSelect.value;
+
+    // Get selected quantity
+    const quantityInput = document.getElementById('quantityInput');
+    const quantity = parseInt(quantityInput.value) || 1;
+
+    // Validate input
+    if (!selectedColor || !selectedSize) {
+        alert('Please select both a color and a size.');
+        return;
     }
-    return selectedSize;
-  }
+
+    // Prepare data to send
+    const cartData = {
+        product_id: productId,
+        name: name,
+        discount_price: price,
+        image: image,
+        size: selectedSize,
+        color: selectedColor,
+        quantity: quantity,
+    };
+
+    // Send data to the server
+    fetch('/cart/add', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+        },
+        body: JSON.stringify(cartData),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.success) {
+                alert('Product added to cart successfully!');
+
+                // Update cart count dynamically
+                const cartCountElement = document.getElementById('cart-count');
+                if (cartCountElement) {
+                    const newCount = Object.values(data.cart).reduce((sum, item) => sum + item.quantity, 0);
+                    cartCountElement.innerText = newCount;
+                }
+            } else {
+                alert('Failed to add product to cart.');
+            }
+        })
+        .catch((error) => console.error('Error:', error));
+}
+
   </script>
 
 @endsection

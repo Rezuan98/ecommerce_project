@@ -23,6 +23,8 @@ return new class extends Migration
             $table->unsignedBigInteger('brand_id')->nullable();
             $table->string('image');
             $table->boolean('is_active')->default(true);
+            $table->string('colors')->nullable();  
+            $table->string('sizes')->nullable(); 
             $table->timestamps();
 
 

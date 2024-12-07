@@ -12,13 +12,28 @@ class ShowProductController extends Controller
 
 
 public function Products($id){
+    $allcategory = Category::whereIn('home_position', [1, 2, 3, 4, 5, 6, 7, 8, 9])->with('subcategories')->get();
 
     $products = Product::where('category_id',$id)->get();
 
-    $allcategory = Category::whereIn('home_position', [1, 2, 3, 4, 5, 6, 7, 8, 9])->with('subcategories')->get();
 
     
-    return view('frontend.pages.products',compact('products','allcategory'));
+    // foreach($products as $product) {
+    //     $colors = json_decode($product->colors);
+    //     $sizes = json_decode($product->sizes);
+    
+        // if (json_last_error() !== JSON_ERROR_NONE) {
+        //     Handle invalid JSON
+        //     Optionally, set $product->colors or $product->sizes to a default value
+        //     $product->colors = [];
+        //     $product->sizes = [];
+        // } else {
+        //     $product->colors = $colors;
+        //     $product->sizes = $sizes;
+        // }
+    
+    
+     return view('frontend.pages.products',compact('products','allcategory'));
 
 }
 
@@ -45,7 +60,8 @@ public function Products($id){
 
         $product_details = Product::where('id',$id)->first();
 
-
+        
+    
 
 
         return view('frontend.pages.product_details',compact('product_details'));

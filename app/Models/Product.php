@@ -19,6 +19,11 @@ class Product extends Model
         'brand_id',
         'image',
         'is_active',
+         'colors', 'sizes'
+    ];
+    protected $casts = [
+        'colors' => 'array',
+        'sizes' => 'array',
     ];
 
 
