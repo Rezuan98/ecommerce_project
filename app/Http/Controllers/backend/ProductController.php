@@ -171,5 +171,20 @@ public function index()
         return redirect()->back()->with('success', 'Category Deleted!');
     }
 
+
+
+    public function search(Request $request)
+{
+    $query = $request->input('query');
+
+    
+    $products = Product::where('name', 'LIKE', "%{$query}%")
+        ->orWhere('description', 'LIKE', "%{$query}%")
+        ->get();
+$allcategory = Category::with('subcategories')->get();
+    // Pass the results to the same view
+    return view('frontend.pages.products', compact('products','query','allcategory'));
+}
+
     
 }

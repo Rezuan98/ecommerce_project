@@ -47,6 +47,10 @@ Route::get('/shipment/information',[CartController::class,'shipmentInformation']
 // route for buy from product details page:
 
 
+    // search functionality route
+    Route::get('/search', [ProductController::class, 'search'])->name('search');
+
+
 
 
 

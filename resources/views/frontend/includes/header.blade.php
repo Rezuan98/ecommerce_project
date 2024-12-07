@@ -80,11 +80,30 @@
           </ul>
         </nav>
   
+
+
+        
+          
+       
+      
+      
+
+
+
+
+
+
+
         <!-- Search and Cart -->
         <div class="search-cart">
           <div class="search-bar">
-            <input type="text" placeholder="Search products">
-            <button>Search</button>
+
+            <form action="{{ route('search') }}" method="GET">
+              <input type="text" name="query" placeholder="Search products..." required>
+            <button type="submit">Search</button>
+
+
+          </form>
           </div>
           <a href="{{ route('cart.index') }}" class="cart">
             <i class="fas fa-shopping-cart"></i>
