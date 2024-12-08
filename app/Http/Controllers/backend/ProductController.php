@@ -96,10 +96,7 @@ public function index()
     $products = Product::with('category', 'subcategory', 'brand')->get();
     
 
-    foreach ($products as $product) {
-        $product->colors = json_decode($product->colors)?? []; 
-        $product->sizes = json_decode($product->sizes)?? [];   
-    }
+    
 
    
     return view('backend.product.index', compact('products'));
@@ -186,5 +183,23 @@ $allcategory = Category::with('subcategories')->get();
     return view('frontend.pages.products', compact('products','query','allcategory'));
 }
 
+public function duplicateProduct($id)
+{
+   
+    $product = Product::find($id);
     
+    if (!$product) {
+        return redirect()->back();
+    }
+
+  
+    $newProduct = $product->replicate();
+    
+    $newProduct->name = $product->name . ' - Copy'; 
+
+    
+    $newProduct->save();
+
+    return redirect()->back();
+}   
 }

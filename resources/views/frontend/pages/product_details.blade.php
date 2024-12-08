@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="product-details">
+
+    
     <!-- Left Container: Product Image -->
     <div class="left-container">
         <div class="product-image-details">

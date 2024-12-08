@@ -109,11 +109,9 @@
             <i class="fas fa-shopping-cart"></i>
             <span class="cart-badge" id="cart-count">{{ $cartCount ?? 0 }}</span>
         </a>
-        
+       
         </div>
-        <button class="navbar-toggler d-block d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon">Hamburger</span>
-        </button>
+        
   
         <!-- Collapsible Navbar (Hidden on large screens, Visible only on small screens) -->
         <div class="collapse navbar-collapse" id="navbarNav">

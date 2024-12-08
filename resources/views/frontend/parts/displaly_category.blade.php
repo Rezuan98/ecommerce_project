@@ -21,7 +21,7 @@
             @if($display_1_product)
 
             @foreach ($display_1_product as $item)
-            <div class="display-category-items items2"><a href="{{ route('product.details',['id' => $display_1->id]) }}"><img src="{{ asset('storage/' . $item->image) }}" alt="Product 2" class="product-image">
+            <div class="display-category-items items2"><a href="{{ route('product.details',['id' => $item->id]) }}"><img src="{{ asset('storage/' . $item->image) }}" alt="Product 2" class="product-image">
                 <span class="display-category-title">{{ $item->discount_price }} <del style="color: red">{{ $item->price??'' }}</del>  </span></a></div>
             @endforeach
 

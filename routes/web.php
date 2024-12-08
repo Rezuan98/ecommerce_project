@@ -160,6 +160,7 @@ Route::get('/delete/size{id}',[SizeController::class,'delete'])->name('delete.si
 // products routes
 Route::get('/product/create',[ProductController::class,'create'])->name('create.product');
 Route::post('/product/store',[ProductController::class,'store'])->name('store.product'); 
+Route::get('product/duplicate/{id}', [ProductController::class, 'duplicateProduct'])->name('duplicate.product');
 Route::get('/product/list',[ProductController::class,'index'])->name('index.product');
 Route::get('/edit/product/{id}',[ProductController::class,'edit'])->name('edit.product');
 Route::post('/update/product/{id}',[ProductController::class,'update'])->name('update.product');

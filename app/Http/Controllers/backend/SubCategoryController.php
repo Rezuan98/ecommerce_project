@@ -107,10 +107,10 @@ public function fetch(Request $request)
         return redirect()->route('index.subcategory')->with('success','Subcategory updated');
         
     }
-    public function deleteCategory($id){
+    public function delete($id){
 
-        $delete_category = Category::where('id',$id)->delete();
-        return redirect()->back()->with('success', 'Category Deleted!');
+        $delete_subcategory = Subcategory::where('id',$id)->delete();
+        return redirect()->back()->with('success', 'subcategory Deleted!');
     }
 
 

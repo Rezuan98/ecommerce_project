@@ -51,7 +51,7 @@
                 <span>No image</span>
             @endif
         </td>
-        <td>
+        <td><a class="btn btn-outline-info btn-sm" href="{{ route('duplicate.product', $product->id) }}">Duplicate</a>
             <a class="btn btn-outline-primary btn-sm" href="{{ route('edit.product', $product->id) }}">Edit</a>
             <a class="btn btn-outline-danger btn-sm" href="{{ route('delete.product', $product->id) }}" onclick="return confirm('Are you sure?')">Delete</a>
         </td>
